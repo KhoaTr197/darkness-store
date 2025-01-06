@@ -4,14 +4,19 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --foreground: #1a1c1e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --headerHeight: 4rem;
+
+  --hover-text-color: #91919c;
+  --primary-text-color: #000000;
+  --secondary-text-color: #ffffff;
+  --background-color: #1a1c1e;
+  --primary-theme-color: #8f00ff;
+  --primary-theme-hover-color: #8b0eeb;
+  --searchbar-background-color: #e9f3fd;
+  --footer-link-color: #91919c;
+  --footer-link-hover-color: #ffffff;
 }
 
 body {

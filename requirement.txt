@@ -1,0 +1,19 @@
+- User authentication (sign up, login, logout)
+- Product catalog with categories and subcategories
+- Product search and filtering
+- Product details page
+- Shopping cart
+- Checkout process
+- Payment gateway integration
+- Order management
+- User profile management
+- Order history and tracking
+- Wishlist functionality
+- Product reviews and ratings
+- Discount codes and promotions
+- Inventory management
+- Responsive design for mobile and desktop
+- Admin panel for managing products, orders, and users
+- Email notifications for order confirmations and updates
+- Analytics and reporting
+- Customer support and contact forms

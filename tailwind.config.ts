@@ -8,6 +8,12 @@ export default {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        "7xl": "90rem"
+      },
+      height: {
+        header: "var(--headerHeight)"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
