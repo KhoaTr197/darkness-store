@@ -1,6 +1,6 @@
 const MenuIcon = ({
-  width=16,
-  height=16,
+  width=48  ,
+  height=48 ,
   fill="white"
 }) => {
   return (
