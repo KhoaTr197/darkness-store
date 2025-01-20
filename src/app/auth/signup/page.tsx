@@ -1,10 +1,10 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import LoginForm from "@/_components/pages/identity/LoginForm";
+import SignupForm from "@/_features/auth/SignUpForm";
 import Image from "next/image";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const router = useRouter();
 
   return (
@@ -12,7 +12,7 @@ const LoginPage = () => {
       <div className="flex h-full">
         <div className="basis-1/3 p-12">
           <div className="w-full">
-            <LoginForm
+            <SignupForm
               onSuccess={() => {
                 router.replace('/dashboard')
               }}
@@ -32,4 +32,4 @@ const LoginPage = () => {
     </main>
   );
 }
-export default LoginPage
+export default SignupPage

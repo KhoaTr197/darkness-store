@@ -2,8 +2,7 @@
 
 import Link from 'next/link'
 import Logo from '@/_assets/Logo'
-import SearchBar from './SearchBar'
-import Banner from './Banner';
+import { SearchBar } from '@/_components/'
 import { Popover, PopoverBackdrop, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { FaShoppingCart, FaBars, FaUser } from "react-icons/fa";
 
@@ -150,7 +149,7 @@ const Header = () => {
           <div className='flex items-center gap-8 h-full'>
             <Link
               className='flex items-center gap-2 px-4 h-full rounded-full transition duration-100 bg-primary-500 hover:brightness-90'
-              href="/identity/login"
+              href="/auth/login"
             >
               <FaUser size={24} />
               <div>
@@ -162,21 +161,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Banner>
-        <p className="text-sm/6 text-gray-900">
-          <strong className="font-semibold">Year of the Snake</strong>
-          <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline size-0.5 fill-current">
-            <circle r={1} cx={1} cy={1} />
-          </svg>
-          Gaming PCs on Sale - Up to 80% Off
-        </p>
-        <a
-          href="#"
-          className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
-        >
-          Check <span aria-hidden="true">&rarr;</span>
-        </a>
-      </Banner>
     </header>
   )
 }

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
+  --background: hsl(210, 20%, 98%);
   --foreground: hsl(210, 7%, 11%);
   --primary-100: hsl(274, 100%, 95%);
   --primary-200: hsl(274, 100%, 85%);

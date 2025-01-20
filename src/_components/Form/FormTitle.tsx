@@ -1,11 +1,16 @@
-import type { FormTitle } from '@/_lib/types/component'
 import React from 'react'
+
+export type FormTitleProps = {
+  id?: string,
+  className?: string,
+  children?: React.ReactNode
+}
 
 const FormTitle = ({
   id,
   className,
   children
-}: FormTitle) => {
+}: FormTitleProps) => {
   return (
     <div id={id} className={className}>
       {children}

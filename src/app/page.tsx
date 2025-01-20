@@ -1,11 +1,13 @@
 import {
-  Header
-} from "@/_components";
+  Header,
+  BentoHero
+} from "@/_layout";
 
 export default function Home() {
   return (
     <div>
       <Header />
+      <BentoHero />
     </div>
   );
 }
