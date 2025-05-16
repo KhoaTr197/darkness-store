@@ -1,13 +1,15 @@
 import {
   Header,
-  BentoHero
+  BentoHero,
+  Footer
 } from "@/_layout";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
       <BentoHero />
-    </div>
+      <Footer />
+    </>
   );
 }

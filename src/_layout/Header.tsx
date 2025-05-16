@@ -5,6 +5,20 @@ import Logo from '@/_assets/Logo'
 import { SearchBar } from '@/_components/'
 import { Popover, PopoverBackdrop, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { FaShoppingCart, FaBars, FaUser } from "react-icons/fa";
+import { useState, useEffect } from "react";
+
+// In a real app, this would come from a cart context or state management
+const useCartCount = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // This simulates loading cart data from localStorage or an API
+    // In a real app, you would sync this with your actual cart state
+    setCount(3);
+  }, []);
+
+  return count;
+};
 
 const navigation = {
   categories:
@@ -67,15 +81,19 @@ const navigation = {
 }
 
 const Header = () => {
+  const cartItemCount = useCartCount();
+
   return (
-    <header className='fixed top-0 w-full bg-foreground text-white shadow z-10'>
-      <div className='max-w-7xl h-header mx-auto py-3 px-2 sm:px-6 lg:px-8'>
-        <div className="relative flex h-full items-center justify-between">
-          <Logo
-            width={50}
-            height={50}
-          />
-          <div className="flex h-full items-center gap-4">
+    <header className='header'>
+      <div className='wrap'>
+        <div className="relative flex gap-40 h-full items-center justify-between">
+          <Link href="/">
+            <Logo
+              width={50}
+              height={50}
+            />
+          </Link>
+          <div className="flex h-full grow items-center gap-4">
             <Popover className="relative h-full">
               <PopoverButton className="h-full outline-none">
                 <div className="flex gap-1 px-2 h-full items-center outline-2 outline-white outline rounded-lg hover:scale-95">
@@ -157,7 +175,15 @@ const Header = () => {
                 <div className='text-sm font-semibold tracking-wide'>Login / Sign Up</div>
               </div>
             </Link>
-            <FaShoppingCart size={32} />
+
+            <Link href="/cart" className="relative flex items-center">
+              <FaShoppingCart size={32} className="hover:text-primary-300 transition-colors" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 bg-primary-500 text-white text-xs font-bold rounded-full">
+                  {cartItemCount > 99 ? '99+' : cartItemCount}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </div>

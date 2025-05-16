@@ -1,61 +1,75 @@
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import { Popover, PopoverButton } from '@headlessui/react'
 import Link from 'next/link';
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useRef, useEffect } from 'react'
 import { FaAngleRight } from 'react-icons/fa';
 
 type PopoverMenuProps = {
   labelText?: string;
   children?: ReactNode;
+  href?: string;
+  className?: string;
 }
 
 const PopoverMenu = ({
   labelText,
-  children
+  children,
+  href = "#",
+  className = ""
 }: PopoverMenuProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleEnter = () => {
-    setIsOpen(true)
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsOpen(true);
   }
 
   const handleLeave = () => {
-    setIsOpen(false)
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
   }
 
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    }
+  }, []);
+
   return (
-    <Popover
-      className="relative flex-grow"
+    <div
+      className={`relative w-full ${className}`}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      ref={menuRef}
     >
-      {({open}) => (
-        <div
-          onMouseEnter={() => handleEnter()}
-          onMouseLeave={() => handleLeave()}
+      <div className="w-full overflow-hidden rounded-none">
+        <div className="w-full h-full px-4 py-2 flex justify-between items-center outline-none hover:bg-primary-400 hover:text-white transition-colors duration-200 cursor-pointer">
+          <Link
+            className="text-inherit flex-grow"
+            href={href}
+          >
+            {labelText}
+          </Link>
+          {children && <FaAngleRight className="transition-transform duration-200 group-hover:translate-x-1" />}
+        </div>
+      </div>
+      
+      {children && isOpen && (
+        <div 
+          className="absolute left-full top-0 min-w-[200px] z-[9999] bg-white rounded-lg shadow-lg ring-1 ring-black/5"
         >
-          <PopoverButton
-            className="w-full h-full"
-          >
-            <Link
-              className="w-full h-full px-4 py-2 flex justify-between items-center outline-none hover:bg-primary-400 hover:text-white"
-              href="/auth/login"
-            >
-              {labelText}
-              <FaAngleRight />
-            </Link>
-          </PopoverButton>
-          <PopoverPanel
-            className="min-w-fit max-w-[var(--button-width)] bg-white rounded-lg shadow ring-2 ring-black/5"
-            anchor={{
-              to: "right start",
-              gap: "2px"
-            }}
-            static={isOpen}
-            unmount={false}
-          >
+          <div className="py-2">
             {children}
-          </PopoverPanel>
+          </div>
         </div>
       )}
-    </Popover>
+    </div>
   )
 }
 

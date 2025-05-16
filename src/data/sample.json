@@ -1,0 +1,260 @@
+{
+  "Users": [
+    {
+      "user_id": 1,
+      "email": "john.doe@example.com",
+      "password": "hashed_password_123",
+      "full_name": "John Doe",
+      "telephone": "123-456-7890",
+      "address": "123 Main St, City",
+      "role_id": 1,
+      "is_active": true,
+      "last_login_at": "2025-05-15T10:00:00Z",
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-15T10:00:00Z"
+    },
+    {
+      "user_id": 2,
+      "email": "jane.smith@example.com",
+      "password": "hashed_password_456",
+      "full_name": "Jane Smith",
+      "telephone": "987-654-3210",
+      "address": "456 Oak St, Town",
+      "role_id": 2,
+      "is_active": true,
+      "last_login_at": "2025-05-14T12:00:00Z",
+      "created_at": "2025-05-02T00:00:00Z",
+      "updated_at": "2025-05-14T12:00:00Z"
+    }
+  ],
+  "Roles": [
+    {
+      "role_id": 1,
+      "role_name": "Customer"
+    },
+    {
+      "role_id": 2,
+      "role_name": "Admin"
+    }
+  ],
+  "Products": [
+    {
+      "product_id": 1,
+      "name": "Smartphone X",
+      "description": "Latest model with 128GB storage",
+      "low_stock_threshold": 10,
+      "stock_quantity": 50,
+      "original_price": 699.99,
+      "sales_off": 10.00,
+      "new_price": 629.99,
+      "thumbnail_url": "http://example.com/images/smartphone_x.jpg",
+      "sales_count": 100,
+      "views_count": 1000,
+      "average_rating": 4.50,
+      "brand_id": 1,
+      "is_active": true,
+      "specifications": {
+        "screen": "6.5 inches",
+        "camera": "48MP"
+      },
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z"
+    },
+    {
+      "product_id": 2,
+      "name": "Wireless Headphones",
+      "description": "Noise-canceling headphones",
+      "low_stock_threshold": 5,
+      "stock_quantity": 20,
+      "original_price": 199.99,
+      "sales_off": 0.00,
+      "new_price": 199.99,
+      "thumbnail_url": "http://example.com/images/headphones.jpg",
+      "sales_count": 50,
+      "views_count": 500,
+      "average_rating": 4.20,
+      "brand_id": 2,
+      "is_active": true,
+      "specifications": {
+        "battery": "20 hours",
+        "connectivity": "Bluetooth 5.0"
+      },
+      "created_at": "2025-05-02T00:00:00Z",
+      "updated_at": "2025-05-14T00:00:00Z"
+    }
+  ],
+  "Product_Medias": [
+    {
+      "media_id": 1,
+      "product_id": 1,
+      "media_url": "http://example.com/images/smartphone_x_side.jpg",
+      "media_type": "image"
+    },
+    {
+      "media_id": 2,
+      "product_id": 2,
+      "media_url": "http://example.com/videos/headphones_demo.mp4",
+      "media_type": "video"
+    }
+  ],
+  "Brands": [
+    {
+      "brand_id": 1,
+      "name": "TechTrend",
+      "description": "Innovative technology solutions",
+      "logo_url": "http://example.com/logos/techtrend.png",
+      "is_active": true,
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-01T00:00:00Z"
+    },
+    {
+      "brand_id": 2,
+      "name": "SoundWave",
+      "description": "Premium audio equipment",
+      "logo_url": "http://example.com/logos/soundwave.png",
+      "is_active": true,
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-01T00:00:00Z"
+    }
+  ],
+  "Products_Categories": [
+    {
+      "product_id": 1,
+      "category_id": 1,
+      "created_at": "2025-05-01T00:00:00Z"
+    },
+    {
+      "product_id": 2,
+      "category_id": 2,
+      "created_at": "2025-05-02T00:00:00Z"
+    }
+  ],
+  "Categories": [
+    {
+      "category_id": 1,
+      "name": "Smartphones",
+      "description": "Latest smartphones and accessories",
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-01T00:00:00Z"
+    },
+    {
+      "category_id": 2,
+      "name": "Audio",
+      "description": "Headphones and speakers",
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-01T00:00:00Z"
+    }
+  ],
+  "Category_Closure": [
+    {
+      "ancestor_id": 1,
+      "descendant_id": 1,
+      "depth": 0
+    },
+    {
+      "ancestor_id": 2,
+      "descendant_id": 2,
+      "depth": 0
+    }
+  ],
+  "Wishlists": [
+    {
+      "user_id": 1,
+      "product_id": 2,
+      "added_at": "2025-05-10T00:00:00Z"
+    }
+  ],
+  "Orders": [
+    {
+      "order_id": 1,
+      "user_id": 1,
+      "tracking_number": "TRK123456",
+      "payment_method": "credit",
+      "order_date": "2025-05-10T00:00:00Z",
+      "status": "shipped",
+      "subtotal": 629.99,
+      "savings": 70.00,
+      "shipping_fee": 10.00,
+      "tax_amount": 50.39,
+      "total_amount": 690.38,
+      "shipped_at": "2025-05-11T00:00:00Z",
+      "delivered_at": "2025-05-15T00:00:00Z",
+      "canceled_at": "1970-01-01T00:00:00Z"
+    }
+  ],
+  "Order_Items": [
+    {
+      "order_id": 1,
+      "product_id": 1,
+      "quantity": 1,
+      "unit_price": 699.99,
+      "subtotal": 699.99,
+      "discount_amount": 70.00
+    }
+  ],
+  "Reviews": [
+    {
+      "review_id": 1,
+      "product_id": 1,
+      "user_id": 1,
+      "rating": 5,
+      "title": "Great Smartphone",
+      "description": "Really fast and great camera",
+      "pros": "Battery life, display",
+      "cons": "Pricey",
+      "is_shown": true,
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z"
+    }
+  ],
+  "Review_Medias": [
+    {
+      "media_id": 1,
+      "review_id": 1,
+      "media_url": "http://example.com/images/review_smartphone_x.jpg",
+      "media_type": "image",
+      "file_size": 1024000
+    }
+  ],
+  "Carts": [
+    {
+      "cart_id": 1,
+      "user_id": 1,
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z"
+    }
+  ],
+  "Cart_Items": [
+    {
+      "cart_id": 1,
+      "product_id": 2,
+      "quantity": 2,
+      "added_at": "2025-05-15T00:00:00Z"
+    }
+  ],
+  "Promotions": [
+    {
+      "promotion_id": 1,
+      "promo_code": "SAVE10",
+      "description": "10% off on smartphones",
+      "usage_limit": 100,
+      "discount_type": "percentage",
+      "discount_value": 10.00,
+      "min_purchase_amount": 500.00,
+      "max_purchase_amount": null,
+      "start_date": "2025-05-01T00:00:00Z",
+      "end_date": "2025-05-31T23:59:59Z",
+      "is_active": true,
+      "created_at": "2025-05-01T00:00:00Z",
+      "updated_at": "2025-05-01T00:00:00Z"
+    }
+  ],
+  "Promotion_Applicability": [
+    {
+      "applicability_id": 1,
+      "promotion_id": 1,
+      "target_type": "category",
+      "target_id": 1
+    }
+  ]
+}
