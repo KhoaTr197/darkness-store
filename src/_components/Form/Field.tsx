@@ -3,13 +3,12 @@ import { Input } from '@headlessui/react'
 import { FieldWrapper, FieldWrapperPassThroughProps } from './FieldWrapper'
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
-export type FieldProps = 
-FieldWrapperPassThroughProps &
-React.InputHTMLAttributes<HTMLInputElement> &
-{
+export interface FieldProps extends
+  FieldWrapperPassThroughProps,
+  React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   registration: Partial<UseFormRegisterReturn>;
-};
+}
 
 const Field = ({
   className,
@@ -17,6 +16,7 @@ const Field = ({
   label,
   type,
   registration,
+  ...rest
 }: FieldProps) => {
   return (
     <FieldWrapper
@@ -26,7 +26,8 @@ const Field = ({
       <Input
         type={type}
         {...registration}
-        className="block w-full mb-2 p-2 border border-solid border-gray-400 rounded"
+        {...rest}
+        className="block text-text w-full mb-2 p-2 border border-solid border-text-muted rounded"
       />
     </FieldWrapper>
   )

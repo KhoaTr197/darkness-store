@@ -1,8 +1,8 @@
-export type ErrorProps = {
+export interface ErrorProps {
   message?: string | null;
-};
+}
 
-const InputError = ({ message }: ErrorProps) => {
+const FieldError = ({ message }: ErrorProps) => {
   if (!message) return null;
 
   return (
@@ -16,4 +16,4 @@ const InputError = ({ message }: ErrorProps) => {
     </div>
   );
 };
-export default InputError
+export default FieldError

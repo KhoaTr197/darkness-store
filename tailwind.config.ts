@@ -27,6 +27,15 @@ export default {
         "primary-800": "var(--primary-800)",
         "primary-900": "var(--primary-900)",
         "primary-950": "var(--primary-950)",
+        text: {
+          DEFAULT: "var(--color-text)",
+          muted: "var(--color-text-muted)",
+          inverted: "var(--color-text-inverted)"
+        },
+        error: "var(--color-error)",
+        warning: "var(--color-warning)",
+        success: "var(--color-success)",
+        info: "var(--color-info)"
       },
     },
   },

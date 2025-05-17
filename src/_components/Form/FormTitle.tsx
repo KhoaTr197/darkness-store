@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
-export type FormTitleProps = {
-  id?: string,
-  className?: string,
-  children?: React.ReactNode
+export interface FormTitleProps {
+  id?: string;
+  className?: string;
+  children?: React.ReactNode;
 }
 
 const FormTitle = ({
   id,
   className,
-  children
+  children,
 }: FormTitleProps) => {
   return (
     <div id={id} className={className}>
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default FormTitle
+export default FormTitle;
