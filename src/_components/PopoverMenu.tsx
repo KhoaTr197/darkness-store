@@ -49,9 +49,9 @@ const PopoverMenu = ({
       ref={menuRef}
     >
       <div className="w-full overflow-hidden rounded-none">
-        <div className="w-full h-full px-4 py-2 flex justify-between items-center outline-none hover:bg-primary-400 hover:text-white transition-colors duration-200 cursor-pointer">
+        <div className="w-full h-full px-4 py-2 flex justify-between items-center outline-hidden hover:bg-primary-400 hover:text-white transition-colors duration-200 cursor-pointer">
           <Link
-            className="text-inherit flex-grow"
+            className="text-inherit grow"
             href={href}
           >
             {labelText}
@@ -62,7 +62,7 @@ const PopoverMenu = ({
       
       {children && isOpen && (
         <div 
-          className="absolute left-full top-0 min-w-[200px] z-[9999] bg-white rounded-lg shadow-lg ring-1 ring-black/5"
+          className="absolute left-full top-0 min-w-[200px] z-9999 bg-white rounded-lg shadow-lg ring-1 ring-black/5"
         >
           <div className="py-2">
             {children}

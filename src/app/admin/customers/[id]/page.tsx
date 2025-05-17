@@ -137,7 +137,7 @@ export default function CustomerDetailPage() {
 
   if (!customer) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+      <div className="bg-white rounded-lg shadow-xs p-8 text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Customer Not Found</h2>
         <p className="text-gray-600 mb-6">The customer you're looking for doesn't exist or has been removed.</p>
         <Link 
@@ -184,7 +184,7 @@ export default function CustomerDetailPage() {
       </div>
 
       {/* Customer Card */}
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white rounded-lg shadow-xs p-6">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/4 mb-4 md:mb-0 md:mr-8 flex flex-col items-center">
             <div className="h-32 w-32 bg-primary-100 rounded-full flex items-center justify-center">
@@ -253,7 +253,7 @@ export default function CustomerDetailPage() {
       </div>
 
       {/* Tabs */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xs overflow-hidden">
         <div className="border-b border-gray-200">
           <nav className="flex -mb-px">
             <button

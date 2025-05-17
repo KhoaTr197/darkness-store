@@ -190,21 +190,21 @@ export default function OrdersPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Total Orders</p>
           <p className="text-2xl font-bold text-gray-900">{filteredOrders.length}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Total Revenue</p>
           <p className="text-2xl font-bold text-gray-900">${totalRevenue.toFixed(2)}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Processing</p>
           <p className="text-2xl font-bold text-gray-900">
             {orders.filter(order => order.status === 'Processing').length}
           </p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Completed</p>
           <p className="text-2xl font-bold text-gray-900">
             {orders.filter(order => order.status === 'Completed').length}
@@ -213,9 +213,9 @@ export default function OrdersPage() {
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white rounded-lg shadow-sm p-4 space-y-4">
+      <div className="bg-white rounded-lg shadow-xs p-4 space-y-4">
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative flex-grow">
+          <div className="relative grow">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FaSearch className="text-gray-400" />
             </div>
@@ -298,7 +298,7 @@ export default function OrdersPage() {
       </div>
 
       {/* Orders Table */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">

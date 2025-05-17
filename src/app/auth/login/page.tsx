@@ -74,7 +74,7 @@ const LoginPage = () => {
                 {
                   icon: <FaFacebook className='fill-white' />,
                   name: "Facebook",
-                  className: "bg-blue-500 !text-white",
+                  className: "bg-blue-500 text-white!",
                   onClick: () => alert('Facebook login clicked')
                 }
               ]}

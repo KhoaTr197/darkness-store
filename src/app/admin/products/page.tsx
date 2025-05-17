@@ -179,9 +179,9 @@ export default function ProductsPage() {
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white rounded-lg shadow-sm p-4 space-y-4">
+      <div className="bg-white rounded-lg shadow-xs p-4 space-y-4">
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative flex-grow">
+          <div className="relative grow">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FaSearch className="text-gray-400" />
             </div>
@@ -237,7 +237,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Products Table */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">

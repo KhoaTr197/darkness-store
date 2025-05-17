@@ -1,6 +1,50 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --container-7xl: 90rem;
+
+  --height-header: var(--headerHeight);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverted: var(--color-text-inverted);
+
+  --color-error: var(--color-error);
+  --color-warning: var(--color-warning);
+  --color-success: var(--color-success);
+  --color-info: var(--color-info);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   --headerHeight: 4.5rem;
@@ -47,7 +91,7 @@ body {
 }
 
 .header {
-  @apply fixed top-0 w-full bg-background text-white shadow z-10;
+  @apply fixed top-0 w-full bg-background text-white shadow-sm z-10;
 }
 
 .promo-card {
@@ -55,5 +99,5 @@ body {
 }
 
 .external-auth-btn {
-  @apply text-gray-800 flex-1 flex gap-2 justify-center items-center border border-solid border-gray-500 rounded p-2 font-semibold transition duration-200 ease-linear hover:bg-gray-100;
+  @apply text-gray-800 flex-1 flex gap-2 justify-center items-center border border-solid border-gray-500 rounded-sm p-2 font-semibold transition duration-200 ease-linear hover:bg-gray-100;
 }

@@ -199,28 +199,28 @@ export default function CustomersPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Total Customers</p>
           <p className="text-2xl font-bold text-gray-900">{totalCustomers}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Active Customers</p>
           <p className="text-2xl font-bold text-gray-900">{activeCustomers}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Total Revenue</p>
           <p className="text-2xl font-bold text-gray-900">${totalRevenue.toFixed(2)}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
+        <div className="bg-white rounded-lg shadow-xs p-4">
           <p className="text-gray-500 text-sm">Avg Order Value</p>
           <p className="text-2xl font-bold text-gray-900">${avgOrderValue.toFixed(2)}</p>
         </div>
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white rounded-lg shadow-sm p-4 space-y-4">
+      <div className="bg-white rounded-lg shadow-xs p-4 space-y-4">
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative flex-grow">
+          <div className="relative grow">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FaSearch className="text-gray-400" />
             </div>
@@ -266,7 +266,7 @@ export default function CustomersPage() {
       </div>
 
       {/* Customers Table */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -347,7 +347,7 @@ export default function CustomersPage() {
                 <tr key={customer.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
+                      <div className="shrink-0 h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
                         <FaUser className="h-5 w-5 text-primary-600" />
                       </div>
                       <div className="ml-4">

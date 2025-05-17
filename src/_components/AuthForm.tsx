@@ -130,7 +130,7 @@ const AuthForm = ({
 
               <Button
                 type="submit"
-                className="w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded text-white bg-primary-500 data-[hover]:bg-primary-600"
+                className="w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded-sm text-white bg-primary-500 data-hover:bg-primary-600"
               >
                 {submitButtonText}
               </Button>

@@ -130,7 +130,7 @@ export default function CartPage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f5f7] min-h-screen pt-[var(--headerHeight)]">
+      <main className="bg-[#f5f5f7] min-h-screen pt-(--headerHeight)">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Page Title & Continue Shopping */}
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
@@ -143,7 +143,7 @@ export default function CartPage() {
           
           {cartItems.length === 0 && savedItems.length === 0 ? (
             <div className="space-y-8">
-              <div className="bg-white rounded-lg p-8 shadow-sm text-center">
+              <div className="bg-white rounded-lg p-8 shadow-xs text-center">
                 <div className="flex justify-center mb-4">
                   <FaShoppingCart size={64} className="text-gray-300" />
                 </div>
@@ -170,7 +170,7 @@ export default function CartPage() {
                     <Link 
                       key={product.id} 
                       href={`/products/${product.id}`}
-                      className="group bg-white rounded-lg shadow-sm overflow-hidden transition-transform hover:scale-[1.02]"
+                      className="group bg-white rounded-lg shadow-xs overflow-hidden transition-transform hover:scale-[1.02]"
                     >
                       <div className="aspect-square relative p-4">
                         <PlaceholderImage 
@@ -192,7 +192,7 @@ export default function CartPage() {
                               // In a real app, this would add the item to the cart
                               alert(`Added ${product.name} to cart!`);
                             }}
-                            className="text-xs px-2 py-1 bg-primary-600 text-white rounded hover:bg-primary-700 transition-colors"
+                            className="text-xs px-2 py-1 bg-primary-600 text-white rounded-sm hover:bg-primary-700 transition-colors"
                           >
                             Add to Cart
                           </button>
@@ -209,7 +209,7 @@ export default function CartPage() {
               <div className="lg:col-span-2">
                 {/* Cart Items */}
                 {cartItems.length > 0 && (
-                  <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
+                  <div className="bg-white rounded-lg shadow-xs overflow-hidden mb-8">
                     {/* Cart Header */}
                     <div className="bg-gray-50 p-4 border-b border-gray-200">
                       <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-600">
@@ -227,7 +227,7 @@ export default function CartPage() {
                           {/* Product Info */}
                           <div className="col-span-6 md:col-span-7">
                             <div className="flex items-center">
-                              <div className="w-16 h-16 flex-shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
+                              <div className="w-16 h-16 shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
                                 <PlaceholderImage 
                                   width={64}
                                   height={64}
@@ -277,7 +277,7 @@ export default function CartPage() {
                                 type="number" 
                                 value={item.quantity} 
                                 onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
-                                className="h-full w-8 text-center border-none focus:outline-none focus:ring-0 text-gray-900 text-sm p-0"
+                                className="h-full w-8 text-center border-none focus:outline-hidden focus:ring-0 text-gray-900 text-sm p-0"
                               />
                               <button 
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -301,7 +301,7 @@ export default function CartPage() {
                 
                 {/* Saved For Later Items */}
                 {savedItems.length > 0 && (
-                  <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
+                  <div className="bg-white rounded-lg shadow-xs overflow-hidden mb-8">
                     <div className="bg-gray-50 p-4 border-b border-gray-200">
                       <h2 className="font-medium text-gray-900">Saved for Later ({savedItems.length} {savedItems.length === 1 ? 'item' : 'items'})</h2>
                     </div>
@@ -310,7 +310,7 @@ export default function CartPage() {
                       <div key={item.id} className="p-4 border-b border-gray-200 last:border-b-0">
                         <div className="md:flex md:items-center md:justify-between">
                           <div className="flex items-center">
-                            <div className="w-16 h-16 flex-shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
+                            <div className="w-16 h-16 shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
                               <PlaceholderImage 
                                 width={64}
                                 height={64}
@@ -368,7 +368,7 @@ export default function CartPage() {
               {/* Order Summary */}
               {cartItems.length > 0 && (
                 <div className="lg:col-span-1">
-                  <div className="bg-white rounded-lg shadow-sm p-6 sticky top-[calc(var(--headerHeight)+2rem)]">
+                  <div className="bg-white rounded-lg shadow-xs p-6 sticky top-[calc(var(--headerHeight)+2rem)]">
                     <h2 className="text-lg font-bold text-gray-900 border-b border-gray-200 pb-4 mb-4">Order Summary</h2>
                     
                     {/* Summary Details */}
@@ -415,7 +415,7 @@ export default function CartPage() {
                             placeholder="Promo Code"
                             value={promoCode}
                             onChange={(e) => setPromoCode(e.target.value)}
-                            className="flex-grow px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-primary-500 focus:border-primary-500"
+                            className="grow px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-primary-500 focus:border-primary-500"
                           />
                           <button 
                             onClick={applyPromoCode}
@@ -447,10 +447,10 @@ export default function CartPage() {
                     <div className="mt-4 flex items-center justify-center space-x-2">
                       <span className="text-xs text-gray-500">We accept:</span>
                       <div className="flex space-x-1">
-                        <div className="w-8 h-5 bg-blue-500 rounded"></div>
-                        <div className="w-8 h-5 bg-red-500 rounded"></div>
-                        <div className="w-8 h-5 bg-yellow-500 rounded"></div>
-                        <div className="w-8 h-5 bg-gray-800 rounded"></div>
+                        <div className="w-8 h-5 bg-blue-500 rounded-sm"></div>
+                        <div className="w-8 h-5 bg-red-500 rounded-sm"></div>
+                        <div className="w-8 h-5 bg-yellow-500 rounded-sm"></div>
+                        <div className="w-8 h-5 bg-gray-800 rounded-sm"></div>
                       </div>
                     </div>
                   </div>
@@ -474,7 +474,7 @@ export default function CartPage() {
                   <Link 
                     key={product.id} 
                     href={`/products/${product.id}`}
-                    className="group bg-white rounded-lg shadow-sm overflow-hidden transition-transform hover:scale-[1.02]"
+                    className="group bg-white rounded-lg shadow-xs overflow-hidden transition-transform hover:scale-[1.02]"
                   >
                     <div className="aspect-square relative p-3">
                       <PlaceholderImage 
@@ -496,7 +496,7 @@ export default function CartPage() {
                             // In a real app, this would add the item to the cart
                             alert(`Added ${product.name} to cart!`);
                           }}
-                          className="text-xs px-2 py-1 bg-primary-600 text-white rounded hover:bg-primary-700 transition-colors"
+                          className="text-xs px-2 py-1 bg-primary-600 text-white rounded-sm hover:bg-primary-700 transition-colors"
                         >
                           Add to Cart
                         </button>

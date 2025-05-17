@@ -162,7 +162,7 @@ const CategoryNavbar = () => {
 
       {isMounted && activeSubcategories && createPortal(
         <div 
-          className="overflow-hidden fixed min-w-[10rem] bg-white shadow-xl rounded-e-lg z-[9999]"
+          className="overflow-hidden fixed min-w-40 bg-white shadow-xl rounded-e-lg z-9999"
           style={{ 
             top: `${menuPosition.top}px`, 
             left: `${menuPosition.left}px`,

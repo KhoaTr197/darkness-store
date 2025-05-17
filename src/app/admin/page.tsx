@@ -37,9 +37,9 @@ const lowStockProducts = [
 ];
 
 const StatCard = ({ title, value, icon, colorClass }: { title: string; value: string | number; icon: React.ReactNode; colorClass: string }) => (
-  <div className="bg-white rounded-lg shadow-sm p-6">
+  <div className="bg-white rounded-lg shadow-xs p-6">
     <div className="flex items-center">
-      <div className={`flex-shrink-0 rounded-full p-3 ${colorClass}`}>
+      <div className={`shrink-0 rounded-full p-3 ${colorClass}`}>
         {icon}
       </div>
       <div className="ml-5">
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
             <option value="24h">Last 24 Hours</option>
             <option value="7d">Last 7 Days</option>
@@ -113,7 +113,7 @@ export default function AdminDashboard() {
       
       {/* Recent Orders & Low Stock Products */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm">
+        <div className="bg-white rounded-lg shadow-xs">
           <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
             <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
             <Link href="/admin/orders" className="text-primary-600 hover:text-primary-800 text-sm font-medium">
@@ -174,7 +174,7 @@ export default function AdminDashboard() {
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-sm">
+        <div className="bg-white rounded-lg shadow-xs">
           <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
             <h2 className="text-lg font-semibold text-gray-900">Low Stock Products</h2>
             <Link href="/admin/products/inventory" className="text-primary-600 hover:text-primary-800 text-sm font-medium">
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
       </div>
       
       {/* Recent Customers Section */}
-      <div className="bg-white rounded-lg shadow-sm">
+      <div className="bg-white rounded-lg shadow-xs">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-gray-900">Recent Customers</h2>
           <Link href="/admin/customers" className="text-primary-600 hover:text-primary-800 text-sm font-medium">
@@ -255,7 +255,7 @@ export default function AdminDashboard() {
                 <tr key={customer.id}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
+                      <div className="shrink-0 h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
                         <FaUser className="h-5 w-5 text-primary-600" />
                       </div>
                       <div className="ml-4">

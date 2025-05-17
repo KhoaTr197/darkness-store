@@ -186,7 +186,7 @@ export default function EditCustomerPage() {
 
   if (notFound) {
     return (
-      <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+      <div className="bg-white rounded-lg shadow-xs p-8 text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Customer Not Found</h2>
         <p className="text-gray-600 mb-6">The customer you're trying to edit doesn't exist or has been removed.</p>
         <Link 
@@ -217,7 +217,7 @@ export default function EditCustomerPage() {
       </div>
 
       {/* Form Card */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg shadow-xs overflow-hidden">
         <form onSubmit={handleSubmit} className="p-6">
           <div className="space-y-6">
             {/* Basic Information */}
@@ -234,7 +234,7 @@ export default function EditCustomerPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
                 </div>
@@ -249,7 +249,7 @@ export default function EditCustomerPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
                 </div>
@@ -264,7 +264,7 @@ export default function EditCustomerPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
                 </div>
@@ -278,7 +278,7 @@ export default function EditCustomerPage() {
                     name="status"
                     value={formData.status}
                     onChange={handleChange}
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500"
                   >
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
@@ -301,7 +301,7 @@ export default function EditCustomerPage() {
                     name="street"
                     value={formData.street}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.street ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.street ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.street && <p className="mt-1 text-sm text-red-500">{errors.street}</p>}
                 </div>
@@ -316,7 +316,7 @@ export default function EditCustomerPage() {
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.city ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.city ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.city && <p className="mt-1 text-sm text-red-500">{errors.city}</p>}
                 </div>
@@ -331,7 +331,7 @@ export default function EditCustomerPage() {
                     name="state"
                     value={formData.state}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.state ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.state ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.state && <p className="mt-1 text-sm text-red-500">{errors.state}</p>}
                 </div>
@@ -346,7 +346,7 @@ export default function EditCustomerPage() {
                     name="zip"
                     value={formData.zip}
                     onChange={handleChange}
-                    className={`block w-full px-3 py-2 border ${errors.zip ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500`}
+                    className={`block w-full px-3 py-2 border ${errors.zip ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500`}
                   />
                   {errors.zip && <p className="mt-1 text-sm text-red-500">{errors.zip}</p>}
                 </div>
@@ -360,7 +360,7 @@ export default function EditCustomerPage() {
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                    className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500"
                   >
                     <option value="USA">United States</option>
                     <option value="CAN">Canada</option>
@@ -385,7 +385,7 @@ export default function EditCustomerPage() {
                   rows={4}
                   value={formData.notes}
                   onChange={handleChange}
-                  className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                  className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-xs focus:ring-primary-500 focus:border-primary-500"
                   placeholder="Add any notes about this customer..."
                 ></textarea>
               </div>
@@ -397,7 +397,7 @@ export default function EditCustomerPage() {
             <button
               type="button"
               onClick={handleCancel}
-              className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center"
+              className="px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center"
             >
               <FaTimes className="mr-2" />
               Cancel
@@ -405,7 +405,7 @@ export default function EditCustomerPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

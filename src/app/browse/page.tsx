@@ -10,7 +10,7 @@ import { products, filterOptions, sortOptions } from './_data/products';
 const ProductCard = ({ product }: { product: any }) => (
   <Link 
     href={`/products/${product.id}`}
-    className="bg-white rounded-lg shadow-sm overflow-hidden group transition-all duration-300 hover:shadow-md border border-gray-100"
+    className="bg-white rounded-lg shadow-xs overflow-hidden group transition-all duration-300 hover:shadow-md border border-gray-100"
   >
     <div className="aspect-square relative overflow-hidden">
       <ProductPlaceholder
@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: any }) => (
         bgColor="#f5f5f7"
         textColor="#8f00ff"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       {product.stock < 5 && (
         <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
           Low Stock
@@ -32,7 +32,7 @@ const ProductCard = ({ product }: { product: any }) => (
             // Add to wishlist
             alert(`Added ${product.name} to wishlist!`);
           }}
-          className="bg-white/80 backdrop-blur-sm p-2 rounded-full text-primary-600 hover:bg-white transition-colors"
+          className="bg-white/80 backdrop-blur-xs p-2 rounded-full text-primary-600 hover:bg-white transition-colors"
         >
           <FaHeart size={14} />
         </button>
@@ -61,7 +61,7 @@ const ProductCard = ({ product }: { product: any }) => (
             // Add to cart functionality
             alert(`Added ${product.name} to cart!`);
           }}
-          className="bg-primary-600 text-white px-3 py-2 rounded-md text-sm hover:bg-primary-700 transition-all duration-300 shadow-sm hover:shadow group-hover:scale-105"
+          className="bg-primary-600 text-white px-3 py-2 rounded-md text-sm hover:bg-primary-700 transition-all duration-300 shadow-xs hover:shadow-sm group-hover:scale-105"
         >
           <FaShoppingCart size={14} className="inline mr-1" />
           <span>Add</span>
@@ -81,7 +81,7 @@ const FilterSection = ({ title, options, selected, onChange }: any) => (
             type="checkbox"
             checked={selected.includes(option)}
             onChange={() => onChange(option)}
-            className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+            className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded-sm"
           />
           <span className="ml-2 text-gray-700 text-sm group-hover:text-primary-600 transition-colors">{option}</span>
         </label>
@@ -182,7 +182,7 @@ export default function BrowsePage() {
   return (
     <>
       <Header />
-      <main className="bg-[#f5f5f7] min-h-screen pt-[var(--headerHeight)]">
+      <main className="bg-[#f5f5f7] min-h-screen pt-(--headerHeight)">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Breadcrumb */}
           <nav className="mb-6 flex items-center text-sm text-gray-600 overflow-x-auto whitespace-nowrap">
@@ -200,7 +200,7 @@ export default function BrowsePage() {
             {/* Search & Sort Bar */}
             <div className="flex flex-col md:flex-row items-stretch gap-4">
               {/* Search */}
-              <div className="relative flex-grow">
+              <div className="relative grow">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <FaSearch className="text-gray-400" />
                 </div>
@@ -209,7 +209,7 @@ export default function BrowsePage() {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="block w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
+                  className="block w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg shadow-xs focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
                 />
                 {searchQuery && (
                   <button 
@@ -225,19 +225,19 @@ export default function BrowsePage() {
                 {/* Mobile Filter Button */}
                 <button
                   onClick={() => setIsFilterOpen(true)}
-                  className="lg:hidden flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg shadow-sm"
+                  className="lg:hidden flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg shadow-xs"
                 >
                   <FaFilter className="text-primary-600" />
                   <span>Filter</span>
                 </button>
                 
                 {/* Sort Dropdown */}
-                <div className="flex-1 md:flex-none flex items-center gap-2 bg-white rounded-lg px-4 py-3 border border-gray-300 shadow-sm">
+                <div className="flex-1 md:flex-none flex items-center gap-2 bg-white rounded-lg px-4 py-3 border border-gray-300 shadow-xs">
                   <FaSort className="text-primary-600" />
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="bg-white text-gray-700 focus:outline-none focus:ring-0 flex-grow"
+                    className="bg-white text-gray-700 focus:outline-hidden focus:ring-0 grow"
                   >
                     {sortOptions.map(option => (
                       <option key={option.value} value={option.value}>
@@ -303,8 +303,8 @@ export default function BrowsePage() {
 
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Filters - Desktop */}
-            <div className="hidden lg:block w-64 flex-shrink-0">
-              <div className="bg-white rounded-lg p-6 sticky top-24 shadow-sm border border-gray-100">
+            <div className="hidden lg:block w-64 shrink-0">
+              <div className="bg-white rounded-lg p-6 sticky top-24 shadow-xs border border-gray-100">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-bold text-gray-900 flex items-center">
                     <FaFilter className="mr-2 text-primary-600" />
@@ -347,7 +347,7 @@ export default function BrowsePage() {
                           type="checkbox"
                           checked={selectedPriceRanges.includes(range.label)}
                           onChange={() => togglePriceRange(range.label)}
-                          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded-sm"
                         />
                         <span className="ml-2 text-gray-700 text-sm">{range.label}</span>
                       </label>
@@ -397,7 +397,7 @@ export default function BrowsePage() {
                             type="checkbox"
                             checked={selectedPriceRanges.includes(range.label)}
                             onChange={() => togglePriceRange(range.label)}
-                            className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+                            className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded-sm"
                           />
                           <span className="ml-2 text-gray-700 text-sm">{range.label}</span>
                         </label>
@@ -444,7 +444,7 @@ export default function BrowsePage() {
                   </div>
                 </>
               ) : (
-                <div className="bg-white rounded-lg shadow-sm p-8 text-center border border-gray-100">
+                <div className="bg-white rounded-lg shadow-xs p-8 text-center border border-gray-100">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
                     <FaSearch className="text-gray-400" size={24} />
                   </div>

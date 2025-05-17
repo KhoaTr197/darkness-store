@@ -80,7 +80,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   return (
     <>
       <Header />
-      <main className="bg-[#f5f5f7] min-h-screen pt-[var(--headerHeight)]">
+      <main className="bg-[#f5f5f7] min-h-screen pt-(--headerHeight)">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Breadcrumb */}
           <nav className="mb-6 flex items-center text-sm text-gray-600 overflow-x-auto whitespace-nowrap">
@@ -97,7 +97,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
             {/* Product Images Section */}
             <div className="lg:col-span-2 space-y-4">
-              <div className="bg-white rounded-lg p-4 shadow-sm">
+              <div className="bg-white rounded-lg p-4 shadow-xs">
                 {/* Main Image */}
                 <div className="bg-white rounded-lg overflow-hidden aspect-square relative">
                   {renderProductImage(activeImage)}
@@ -131,7 +131,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             {/* Product Information Section */}
             <div className="lg:col-span-3 space-y-6">
               {/* Product Header */}
-              <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="bg-white rounded-lg p-6 shadow-xs">
                 <div className="mb-2 flex items-center">
                   <span className="text-gray-500 text-sm font-medium">
                     {product.brandName}
@@ -187,7 +187,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                       type="number" 
                       value={quantity} 
                       onChange={(e) => setQuantity(Math.min(product.stock, Math.max(1, parseInt(e.target.value) || 1)))}
-                      className="h-full w-full text-center border-none focus:outline-none focus:ring-0 text-gray-900"
+                      className="h-full w-full text-center border-none focus:outline-hidden focus:ring-0 text-gray-900"
                     />
                     <button 
                       onClick={incrementQuantity}
@@ -198,7 +198,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                     </button>
                   </div>
                   
-                  <button className="h-12 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg flex-grow flex items-center justify-center gap-2 transition-colors">
+                  <button className="h-12 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg grow flex items-center justify-center gap-2 transition-colors">
                     <FaShoppingCart size={16} />
                     Add to Cart
                   </button>
@@ -214,7 +214,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               </div>
               
               {/* Product Highlights */}
-              <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="bg-white rounded-lg p-6 shadow-xs">
                 <h3 className="text-lg font-semibold mb-3">Quick Highlights</h3>
                 <ul className="space-y-2">
                   {product.features.slice(0, 4).map((feature, index) => (
@@ -231,7 +231,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
           
           {/* Product Details Tabs */}
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-12">
+          <div className="bg-white rounded-lg shadow-xs overflow-hidden mb-12">
             <div className="flex border-b border-gray-200">
               <button 
                 className={`px-5 py-3 text-sm font-medium transition-colors ${activeTab === 'description' ? 'text-primary-600 border-b-2 border-primary-600' : 'text-gray-600 hover:text-gray-900'}`} 
@@ -311,7 +311,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 <Link 
                   key={relatedProduct.id} 
                   href={`/products/${relatedProduct.id}`}
-                  className="group bg-white rounded-lg shadow-sm overflow-hidden transition-transform hover:scale-[1.02]"
+                  className="group bg-white rounded-lg shadow-xs overflow-hidden transition-transform hover:scale-[1.02]"
                 >
                   <div className="aspect-square relative p-4">
                     <PlaceholderImage 

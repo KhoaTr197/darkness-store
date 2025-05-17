@@ -27,7 +27,7 @@ const Field = ({
         type={type}
         {...registration}
         {...rest}
-        className="block text-text w-full mb-2 p-2 border border-solid border-text-muted rounded"
+        className="block text-text w-full mb-2 p-2 border border-solid border-text-muted rounded-sm"
       />
     </FieldWrapper>
   )

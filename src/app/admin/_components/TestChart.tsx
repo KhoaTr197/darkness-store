@@ -63,7 +63,7 @@ export default function TestChart() {
   }, []);
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow">
+    <div className="bg-white p-4 rounded-lg shadow-sm">
       <h2 className="text-lg font-medium mb-4">Test Chart</h2>
       <svg ref={svgRef}></svg>
     </div>

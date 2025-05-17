@@ -95,15 +95,15 @@ const Header = () => {
           </Link>
           <div className="flex h-full grow items-center gap-4">
             <Popover className="relative h-full">
-              <PopoverButton className="h-full outline-none">
-                <div className="flex gap-1 px-2 h-full items-center outline-2 outline-white outline rounded-lg hover:scale-95">
+              <PopoverButton className="h-full outline-hidden">
+                <div className="flex gap-1 px-2 h-full items-center outline-2 outline-white outline-solid rounded-lg hover:scale-95">
                   <FaBars size={24} />
                   Menu
                 </div>
               </PopoverButton>
               <PopoverBackdrop
                 transition
-                className="fixed inset-0 bg-black/15 top-[var(--headerHeight)] transition duration-[400ms] ease-in-out"
+                className="fixed inset-0 bg-black/15 top-(--headerHeight) transition duration-400 ease-in-out"
               />
               <PopoverPanel
                 transition
@@ -112,7 +112,7 @@ const Header = () => {
                   to: "bottom",
                   gap: '12px',
                 }}
-                className="z-10 w-screen shadow mx-auto transition duration-200 ease-in-out data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                className="z-10 w-screen shadow-sm mx-auto transition duration-200 ease-in-out data-closed:-translate-y-1 data-closed:opacity-0"
               >
                 <div className="relative bg-white">
                   <div className="flex h-fit mx-auto max-w-7xl px-8">

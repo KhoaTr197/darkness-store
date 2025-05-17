@@ -60,7 +60,7 @@ function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background">
       {/* Sidebar */}
       <div className="fixed inset-y-0 left-0 w-64 bg-foreground text-background">
-        <div className="h-16 flex items-center px-6 bg-foreground shadow">
+        <div className="h-16 flex items-center px-6 bg-foreground shadow-sm">
           <h1 className="text-xl font-bold">Darkness Admin</h1>
         </div>
         <nav className="mt-6 px-4">
@@ -86,12 +86,12 @@ function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <div className="pl-64">
-        <header className="h-16 bg-foreground shadow flex items-center px-6">
+        <header className="h-16 bg-foreground shadow-sm flex items-center px-6">
           <div className="flex-1">
             <input
               type="text"
               placeholder="Search..."
-              className="w-96 px-4 py-2 rounded-lg border border-primary/20 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-96 px-4 py-2 rounded-lg border border-primary/20 bg-background text-foreground focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
           <div className="flex items-center space-x-4">

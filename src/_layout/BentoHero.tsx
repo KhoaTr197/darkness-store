@@ -46,7 +46,7 @@ const PromoCard = ({
 const BentoHero = () => {
   return (
     <div className="bg-foreground relative z-0">
-      <div className="min-h-screen max-w-7xl mx-auto pt-[var(--headerHeight)] px-6 lg:px-8">
+      <div className="min-h-screen max-w-7xl mx-auto pt-(--headerHeight) px-6 lg:px-8">
         <div className="py-8 grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Category Navigation - Left Column */}
           <div className="bg-white rounded-lg shadow-lg ring-1 ring-gray-100 overflow-hidden col-span-1 row-span-3 h-full">
@@ -58,8 +58,8 @@ const BentoHero = () => {
             title="Year of the Snake"
             description="Gaming PCs on Sale - Up to 80% Off"
             link="/deals/vr"
-            bgColor="bg-gradient-to-r from-purple-200 to-purple-100"
-            className="shadow-lg overflow-hidden col-span-3 row-span-2 p-8 !justify-center"
+            bgColor="bg-linear-to-r from-purple-200 to-purple-100"
+            className="shadow-lg overflow-hidden col-span-3 row-span-2 p-8 justify-center!"
           />
 
           {/* Third Row - Two promotional cards in the middle row */}
