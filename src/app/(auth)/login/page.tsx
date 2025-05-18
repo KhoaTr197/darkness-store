@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { useAuth } from "@/context/AuthContext";
 // --------------------------------------------
 
 const LoginPage = () => {
   const router = useRouter();
+  const { login, isLoading } = useAuth();
 
   const loginFields: FieldConfig[] = [
     {
@@ -34,17 +36,16 @@ const LoginPage = () => {
     }
   ];
 
-  const handleSubmit = async (data: any, setError: any) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Demo validation - in real app, this would be an API call
-    if (data.email !== 'demo@example.com' || data.password !== 'password123') {
-      throw new Error('Invalid credentials');
+  const onSubmit = async (data: any, setError: any) => {
+    try {
+      await login(data.email, data.password);
+      router.push('/dashboard');
+    } catch (error) {
+      setError("root", {
+        type: "error",
+        message: "Invalid credentials"
+      });
     }
-
-    // Success - would normally set auth tokens/cookies here
-    console.log('Login successful', data);
   };
 
   return (
@@ -54,12 +55,9 @@ const LoginPage = () => {
           <div className="w-full">
             <AuthForm
               title="Login"
-              submitButtonText="Sign In"
-              onSubmit={handleSubmit}
-              onSuccess={() => {
-                alert('Login successful! Redirecting...');
-                router.push('/dashboard');
-              }}
+              submitButtonText="Log in"
+              isLoading={isLoading}
+              onSubmit={onSubmit}
               fields={loginFields}
               alternateAuth={{
                 text: "Don't have an account?",

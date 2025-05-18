@@ -1,5 +1,7 @@
-import { createContext, useContext, useState } from 'react';
+"use client";
 
+import { createContext, useContext, useState } from "react";
+// ---------------------------------
 export interface User {
   id: string;
   name: string;
@@ -9,6 +11,7 @@ export interface User {
 export interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
+  signup: (data: any) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -34,7 +37,27 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const newUser: User = { id: '1', name: 'Demo User', email: 'demo@example.com' };
       setUser(newUser);
     } catch (err) {
-      console.error(err);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const signup = async (data: any) => {
+    setIsLoading(true);
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Demo validation - in real app, this would be an API call
+      if (data.email === 'taken@example.com') {
+        throw new Error('This email is already registered');
+      }
+
+      // Success - would normally create user account here
+
+    } catch (err) {
+      throw err;
     } finally {
       setIsLoading(false);
     }
@@ -45,7 +68,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, login, signup, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

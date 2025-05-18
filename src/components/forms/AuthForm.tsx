@@ -9,6 +9,7 @@ import Logo from "@/assets/Logo";
 import Link from "next/link";
 import FormMessage, { FormMessageProps } from "./FormMessage";
 import { FieldValues, UseFormRegisterReturn } from "react-hook-form";
+// ---------------------------------
 
 export interface FieldConfig {
   name: string;
@@ -28,8 +29,8 @@ export interface FieldConfig {
 export interface AuthFormProps {
   title: string;
   submitButtonText: string;
-  onSubmit: (data: FieldValues, setError: any) => Promise<void>;
-  onSuccess: () => void;
+  onSubmit: (data: FieldValues, setError: any) => void;
+  isLoading: boolean;
   fields: FieldConfig[];
   alternateAuth: {
     text: string;
@@ -63,8 +64,8 @@ export interface AuthFormProps {
  * @param {Object}   props
  * @param {string}   props.title                - Title displayed at the top of the form.
  * @param {string}   props.submitButtonText     - Text for the submit button.
- * @param {function} props.onSubmit             - Async function called on form submit. Receives form data and setError callback.
- * @param {function} props.onSuccess            - Callback after successful submission.
+ * @param {function} props.onSubmit             - Function called on form submit. Receives form data and setError callback.
+ * @param {boolean}  props.isLoading            - Loading state of the form.
  * @param {Array}    props.fields               - Array of field configs ({ name, label, type, validation }).
  * @param {Object}   props.alternateAuth        - Alternate auth link ({ text, link, linkText }).
  * @param {Object}   [props.externalAuth]       - External auth options ({ show, text, options }).
@@ -78,8 +79,7 @@ export interface AuthFormProps {
  * <AuthForm
  *   title="Sign Up"
  *   submitButtonText="Create Account"
- *   onSubmit={async (data, setError) => { ... }}
- *   onSuccess={() => { ... }}
+ *   onSubmit={(data, setError) => { ... }}
  *   fields={[
  *     { name: 'username', label: 'Username', type: 'text', validation: { required: 'Username is required' } },
  *     { name: 'email', label: 'Email', type: 'email', validation: { required: 'Email is required', pattern: /.../ } },
@@ -103,7 +103,7 @@ const AuthForm = ({
   title,
   submitButtonText,
   onSubmit,
-  onSuccess,
+  isLoading,
   fields,
   alternateAuth,
   externalAuth = {
@@ -121,17 +121,7 @@ const AuthForm = ({
   return (
     <div>
       <Form
-        onSubmit={async (data, setError) => {
-          try {
-            await onSubmit(data, setError);
-            onSuccess();
-          } catch (error: any) {
-            setError("root", {
-              type: "error",
-              message: error.message || "An error occurred"
-            });
-          }
-        }}
+        onSubmit={(data, setError) => onSubmit(data, setError)}
         options={{
           mode: "onSubmit",
         }}
@@ -181,9 +171,9 @@ const AuthForm = ({
 
               <Button
                 type="submit"
-                className="w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded-sm text-white bg-primary-500 data-hover:bg-primary-600"
+                className={`w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded-sm text-white ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-primary-500 data-hover:bg-primary-600'}`} disabled={isLoading}
               >
-                {submitButtonText}
+                {isLoading ? "Logging in..." : submitButtonText}
               </Button>
             </>
           );

@@ -39,7 +39,7 @@ const SearchBar = ({
   return (
     <div className={`flex h-full w-full text-black relative ${className}`}>
       <input
-        className="w-full px-4 py-2 rounded-lg placeholder:select-none placeholder:text-[#91919c] focus:outline-hidden focus:outline-(--primary-500) focus:outline-2 focus:outline-offset-0"
+        className="w-full bg-white px-4 py-2 rounded-lg placeholder:select-none placeholder:text-[#91919c] focus:outline-hidden focus:outline-(--primary-500) focus:outline-2 focus:outline-offset-0"
         type="search"
         id="searchbar"
         name="SearchBar"

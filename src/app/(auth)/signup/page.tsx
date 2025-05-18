@@ -5,8 +5,11 @@ import Image from "next/image";
 import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { useAuth } from "@/context/AuthContext";
+// ---------------------------------
 
 const SignupPage = () => {
+  const { isLoading } = useAuth();
   const router = useRouter();
 
   const signupFields: FieldConfig[] = [
@@ -53,7 +56,7 @@ const SignupPage = () => {
     }
   ];
 
-  const handleSubmit = async (data: any, setError: any) => {
+  const onSubmit = async (data: any, setError: any) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
 
@@ -63,7 +66,7 @@ const SignupPage = () => {
     }
 
     // Success - would normally create user account here
-    console.log('Signup successful', data);
+    router.replace('/login')
   };
 
   return (
@@ -74,10 +77,8 @@ const SignupPage = () => {
             <AuthForm
               title="Create Account"
               submitButtonText="Sign Up"
-              onSubmit={handleSubmit}
-              onSuccess={() => {
-                router.replace('/dashboard')
-              }}
+              onSubmit={onSubmit}
+              isLoading={isLoading}
               fields={signupFields}
               alternateAuth={{
                 text: "Already have an account?",

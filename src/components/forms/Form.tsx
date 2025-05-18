@@ -35,15 +35,13 @@ const Form = ({
 }: FormProps) => {
   const form = useForm({ ...options });
 
-  const RehandleSubmit: SubmitHandler<FieldValues> = (data, e) => {
-    onSubmit(data, form.setError, e);
-  };
-
   return (
     <form
       id={id}
       className={className}
-      onSubmit={form.handleSubmit(RehandleSubmit)}
+      onSubmit={form.handleSubmit((data, e) =>
+        onSubmit(data, form.setError, e))
+      }
       method={method}
     >
       {children(form)}
