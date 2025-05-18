@@ -2,7 +2,7 @@ import {
   Header,
   BentoHero,
   Footer
-} from "@/_layout";
+} from "@/components/layout";
 
 export default function Home() {
   return (

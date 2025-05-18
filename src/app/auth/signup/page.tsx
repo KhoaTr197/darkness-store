@@ -1,9 +1,10 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import AuthForm, { FieldConfig } from "@/_components/AuthForm";
+import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -67,7 +68,7 @@ const SignupPage = () => {
 
   return (
     <main className="w-screen h-screen bg-white">
-      <div className="flex h-full">
+      <div className="flex flex-row-reverse h-full">
         <div className="basis-1/3 p-12">
           <div className="w-full">
             <AuthForm
@@ -80,16 +81,27 @@ const SignupPage = () => {
               fields={signupFields}
               alternateAuth={{
                 text: "Already have an account?",
-                link: "/auth/login",
+                link: "login",
                 linkText: "Login"
               }}
-              externalAuthOptions={[
-                {
-                  icon: <FcGoogle />,
-                  name: "Google",
-                  onClick: () => console.log('Google signup clicked')
-                }
-              ]}
+              externalAuth={{
+                show: true,
+                text: "Or continue with",
+                options: [
+                  {
+                    icon: <FcGoogle />,
+                    name: "Google",
+                    className: "bg-white text-gray-800 border-gray-300",
+                    onClick: () => console.log('Google signup clicked')
+                  },
+                  {
+                    icon: <FaFacebook className='fill-white' />,
+                    name: "Facebook",
+                    className: "bg-blue-500 text-white border-blue-500",
+                    onClick: () => alert('Facebook login clicked')
+                  }
+                ]
+              }}
             />
           </div>
         </div>

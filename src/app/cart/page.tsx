@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Header } from "@/_layout";
+import { Header } from "@/components/layout";
 import { FaShoppingCart, FaTrash, FaChevronRight, FaChevronDown, FaChevronUp, FaArrowLeft, FaLock, FaHeart } from "react-icons/fa";
 import PlaceholderImage from "../products/[slug]/PlaceholderImage";
 
@@ -58,7 +58,7 @@ export default function CartPage() {
   const [promoCode, setPromoCode] = useState("");
   const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
   const [promoError, setPromoError] = useState<string | null>(null);
-  
+
   // Calculate cart totals
   const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   const discountRate = appliedPromo ? promoCodes[appliedPromo as keyof typeof promoCodes].discount : 0;
@@ -66,7 +66,7 @@ export default function CartPage() {
   const shipping = subtotal > 100 ? 0 : 9.99;
   const tax = (subtotal - discountAmount) * 0.08; // 8% tax rate
   const total = subtotal - discountAmount + shipping + tax;
-  
+
   // Update item quantity
   const updateQuantity = (id: string, newQuantity: number) => {
     setCartItems(cartItems.map(item => {
@@ -77,19 +77,19 @@ export default function CartPage() {
       return item;
     }));
   };
-  
+
   // Remove item from cart
   const removeItem = (id: string) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
-  
+
   // Apply promo code
   const applyPromoCode = () => {
     if (!promoCode) {
       setPromoError("Please enter a promo code");
       return;
     }
-    
+
     if (promoCodes[promoCode as keyof typeof promoCodes]) {
       setAppliedPromo(promoCode);
       setPromoError(null);
@@ -98,7 +98,7 @@ export default function CartPage() {
       setPromoError("Invalid promo code");
     }
   };
-  
+
   // Remove applied promo code
   const removePromoCode = () => {
     setAppliedPromo(null);
@@ -140,7 +140,7 @@ export default function CartPage() {
               Continue Shopping
             </Link>
           </div>
-          
+
           {cartItems.length === 0 && savedItems.length === 0 ? (
             <div className="space-y-8">
               <div className="bg-white rounded-lg p-8 shadow-xs text-center">
@@ -149,14 +149,14 @@ export default function CartPage() {
                 </div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">Your cart is empty</h2>
                 <p className="text-gray-600 mb-6">Looks like you haven't added any products to your cart yet.</p>
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
                 >
                   Start Shopping
                 </Link>
               </div>
-              
+
               {/* Recommended Products for Empty Cart */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Recommended For You</h2>
@@ -167,13 +167,13 @@ export default function CartPage() {
                     { id: "samsung-990-pro-2tb", name: "Samsung 990 PRO 2TB SSD", price: 179.99, category: "Storage" },
                     { id: "corsair-rm850x", name: "Corsair RM850x 850W PSU", price: 149.99, category: "Power Supplies" }
                   ].map((product, index) => (
-                    <Link 
-                      key={product.id} 
+                    <Link
+                      key={product.id}
                       href={`/products/${product.id}`}
                       className="group bg-white rounded-lg shadow-xs overflow-hidden transition-transform hover:scale-[1.02]"
                     >
                       <div className="aspect-square relative p-4">
-                        <PlaceholderImage 
+                        <PlaceholderImage
                           text={product.name}
                           bgColor={index % 2 === 0 ? "#f8fafc" : "#f1f5f9"}
                         />
@@ -185,7 +185,7 @@ export default function CartPage() {
                         </h3>
                         <div className="flex items-center justify-between">
                           <p className="font-bold">${product.price.toFixed(2)}</p>
-                          <button 
+                          <button
                             onClick={(e) => {
                               e.preventDefault();
                               e.stopPropagation();
@@ -219,7 +219,7 @@ export default function CartPage() {
                         <div className="col-span-2 md:col-span-1 text-right">Total</div>
                       </div>
                     </div>
-                    
+
                     {/* Cart Items */}
                     {cartItems.map((item) => (
                       <div key={item.id} className="p-4 border-b border-gray-200 last:border-b-0">
@@ -228,7 +228,7 @@ export default function CartPage() {
                           <div className="col-span-6 md:col-span-7">
                             <div className="flex items-center">
                               <div className="w-16 h-16 shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
-                                <PlaceholderImage 
+                                <PlaceholderImage
                                   width={64}
                                   height={64}
                                   text={item.name.split(" ")[0]}
@@ -239,14 +239,14 @@ export default function CartPage() {
                                   {item.name}
                                 </Link>
                                 <div className="flex items-center mt-1 space-x-4">
-                                  <button 
+                                  <button
                                     onClick={() => removeItem(item.id)}
                                     className="flex items-center text-sm text-red-500 hover:text-red-600 transition-colors"
                                   >
                                     <FaTrash size={12} className="mr-1" />
                                     <span>Remove</span>
                                   </button>
-                                  <button 
+                                  <button
                                     onClick={() => saveForLater(item.id)}
                                     className="flex items-center text-sm text-primary-600 hover:text-primary-700 transition-colors"
                                   >
@@ -257,29 +257,29 @@ export default function CartPage() {
                               </div>
                             </div>
                           </div>
-                          
+
                           {/* Price */}
                           <div className="col-span-2 text-center text-gray-900">
                             ${item.price.toFixed(2)}
                           </div>
-                          
+
                           {/* Quantity */}
                           <div className="col-span-2 text-center">
                             <div className="flex items-center justify-center h-9 rounded-lg border border-gray-300 overflow-hidden">
-                              <button 
+                              <button
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                 className="w-8 h-full flex items-center justify-center text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
                                 disabled={item.quantity <= 1}
                               >
                                 <FaChevronDown size={12} />
                               </button>
-                              <input 
-                                type="number" 
-                                value={item.quantity} 
+                              <input
+                                type="number"
+                                value={item.quantity}
                                 onChange={(e) => updateQuantity(item.id, parseInt(e.target.value) || 1)}
                                 className="h-full w-8 text-center border-none focus:outline-hidden focus:ring-0 text-gray-900 text-sm p-0"
                               />
-                              <button 
+                              <button
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 className="w-8 h-full flex items-center justify-center text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
                                 disabled={item.quantity >= item.stock}
@@ -288,7 +288,7 @@ export default function CartPage() {
                               </button>
                             </div>
                           </div>
-                          
+
                           {/* Total */}
                           <div className="col-span-2 md:col-span-1 text-right font-medium text-gray-900">
                             ${(item.price * item.quantity).toFixed(2)}
@@ -298,20 +298,20 @@ export default function CartPage() {
                     ))}
                   </div>
                 )}
-                
+
                 {/* Saved For Later Items */}
                 {savedItems.length > 0 && (
                   <div className="bg-white rounded-lg shadow-xs overflow-hidden mb-8">
                     <div className="bg-gray-50 p-4 border-b border-gray-200">
                       <h2 className="font-medium text-gray-900">Saved for Later ({savedItems.length} {savedItems.length === 1 ? 'item' : 'items'})</h2>
                     </div>
-                    
+
                     {savedItems.map((item) => (
                       <div key={item.id} className="p-4 border-b border-gray-200 last:border-b-0">
                         <div className="md:flex md:items-center md:justify-between">
                           <div className="flex items-center">
                             <div className="w-16 h-16 shrink-0 mr-4 bg-gray-100 rounded-md overflow-hidden">
-                              <PlaceholderImage 
+                              <PlaceholderImage
                                 width={64}
                                 height={64}
                                 text={item.name.split(" ")[0]}
@@ -323,14 +323,14 @@ export default function CartPage() {
                               </Link>
                               <div className="text-gray-700 mt-1">${item.price.toFixed(2)}</div>
                               <div className="flex items-center mt-2 space-x-4">
-                                <button 
+                                <button
                                   onClick={() => moveToCart(item.id)}
                                   className="flex items-center text-sm text-primary-600 hover:text-primary-700 transition-colors"
                                 >
                                   <FaShoppingCart size={12} className="mr-1" />
                                   <span>Move to Cart</span>
                                 </button>
-                                <button 
+                                <button
                                   onClick={() => removeSavedItem(item.id)}
                                   className="flex items-center text-sm text-red-500 hover:text-red-600 transition-colors"
                                 >
@@ -352,11 +352,11 @@ export default function CartPage() {
                     ))}
                   </div>
                 )}
-                
+
                 {/* Continue Shopping (Mobile) */}
                 <div className="flex justify-center md:hidden mb-8">
-                  <Link 
-                    href="/" 
+                  <Link
+                    href="/"
                     className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     <FaArrowLeft className="mr-2" size={14} />
@@ -364,26 +364,26 @@ export default function CartPage() {
                   </Link>
                 </div>
               </div>
-              
+
               {/* Order Summary */}
               {cartItems.length > 0 && (
                 <div className="lg:col-span-1">
                   <div className="bg-white rounded-lg shadow-xs p-6 sticky top-[calc(var(--headerHeight)+2rem)]">
                     <h2 className="text-lg font-bold text-gray-900 border-b border-gray-200 pb-4 mb-4">Order Summary</h2>
-                    
+
                     {/* Summary Details */}
                     <div className="space-y-3 mb-6">
                       <div className="flex justify-between text-gray-600">
                         <span>Subtotal ({cartItems.reduce((acc, item) => acc + item.quantity, 0)} items)</span>
                         <span className="font-medium text-gray-900">${subtotal.toFixed(2)}</span>
                       </div>
-                      
+
                       {appliedPromo && (
                         <div className="flex justify-between text-gray-600">
                           <div className="flex items-center">
                             <span>Discount</span>
-                            <button 
-                              onClick={removePromoCode} 
+                            <button
+                              onClick={removePromoCode}
                               className="ml-2 text-xs text-red-500 hover:text-red-600"
                             >
                               (Remove)
@@ -392,32 +392,32 @@ export default function CartPage() {
                           <span className="font-medium text-green-600">-${discountAmount.toFixed(2)}</span>
                         </div>
                       )}
-                      
+
                       <div className="flex justify-between text-gray-600">
                         <span>Shipping</span>
                         <span className="font-medium text-gray-900">
                           {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
                         </span>
                       </div>
-                      
+
                       <div className="flex justify-between text-gray-600">
                         <span>Estimated Tax</span>
                         <span className="font-medium text-gray-900">${tax.toFixed(2)}</span>
                       </div>
                     </div>
-                    
+
                     {/* Promo Code */}
                     {!appliedPromo && (
                       <div className="mb-6">
                         <div className="flex items-center mb-2 space-x-2">
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="Promo Code"
                             value={promoCode}
                             onChange={(e) => setPromoCode(e.target.value)}
                             className="grow px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-primary-500 focus:border-primary-500"
                           />
-                          <button 
+                          <button
                             onClick={applyPromoCode}
                             className="px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
                           >
@@ -430,19 +430,19 @@ export default function CartPage() {
                         <p className="text-xs text-gray-500">Try: WELCOME10, SUMMER25</p>
                       </div>
                     )}
-                    
+
                     {/* Total */}
                     <div className="flex justify-between border-t border-gray-200 pt-4 mb-6">
                       <span className="text-lg font-bold text-gray-900">Total</span>
                       <span className="text-lg font-bold text-gray-900">${total.toFixed(2)}</span>
                     </div>
-                    
+
                     {/* Checkout Button */}
                     <button className="w-full py-3 bg-primary-600 text-white font-medium rounded-lg flex items-center justify-center hover:bg-primary-700 transition-colors">
                       <FaLock className="mr-2" size={14} />
                       Proceed to Checkout
                     </button>
-                    
+
                     {/* Payment Methods */}
                     <div className="mt-4 flex items-center justify-center space-x-2">
                       <span className="text-xs text-gray-500">We accept:</span>
@@ -458,7 +458,7 @@ export default function CartPage() {
               )}
             </div>
           )}
-          
+
           {/* Recommended Products */}
           {cartItems.length > 0 && (
             <div className="mt-12">
@@ -471,13 +471,13 @@ export default function CartPage() {
                   { id: "asus-rog-strix-z790", name: "ASUS ROG Strix Z790-E Gaming WiFi", price: 399.99, category: "Motherboards" },
                   { id: "evga-1000-g6", name: "EVGA SuperNOVA 1000 G6", price: 179.99, category: "Power Supplies" }
                 ].map((product, index) => (
-                  <Link 
-                    key={product.id} 
+                  <Link
+                    key={product.id}
                     href={`/products/${product.id}`}
                     className="group bg-white rounded-lg shadow-xs overflow-hidden transition-transform hover:scale-[1.02]"
                   >
                     <div className="aspect-square relative p-3">
-                      <PlaceholderImage 
+                      <PlaceholderImage
                         text={product.name.split(" ").slice(0, 2).join(" ")}
                         bgColor={index % 2 === 0 ? "#f8fafc" : "#f1f5f9"}
                       />
@@ -489,7 +489,7 @@ export default function CartPage() {
                       </h3>
                       <div className="flex items-center justify-between">
                         <p className="font-bold text-sm">${product.price.toFixed(2)}</p>
-                        <button 
+                        <button
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();

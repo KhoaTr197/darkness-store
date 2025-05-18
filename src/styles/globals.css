@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --container-7xl: 90rem;
@@ -99,5 +99,5 @@ body {
 }
 
 .external-auth-btn {
-  @apply text-gray-800 flex-1 flex gap-2 justify-center items-center border border-solid border-gray-500 rounded-sm p-2 font-semibold transition duration-200 ease-linear hover:bg-gray-100;
+  @apply cursor-pointer flex-1 flex gap-2 justify-center items-center border border-solid rounded p-2 font-semibold transition duration-200 ease-linear hover:brightness-75;
 }

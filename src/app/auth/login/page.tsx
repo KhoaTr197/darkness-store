@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import AuthForm, { FieldConfig } from "@/_components/AuthForm";
+import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
@@ -62,22 +62,27 @@ const LoginPage = () => {
               fields={loginFields}
               alternateAuth={{
                 text: "Don't have an account?",
-                link: "/demo/signup",
+                link: "signup",
                 linkText: "Sign Up"
               }}
-              externalAuthOptions={[
-                {
-                  icon: <FcGoogle />,
-                  name: "Google",
-                  onClick: () => alert('Google login clicked')
-                },
-                {
-                  icon: <FaFacebook className='fill-white' />,
-                  name: "Facebook",
-                  className: "bg-blue-500 text-white!",
-                  onClick: () => alert('Facebook login clicked')
-                }
-              ]}
+              externalAuth={{
+                show: true,
+                text: "Or continue with",
+                options: [
+                  {
+                    icon: <FcGoogle />,
+                    name: "Google",
+                    className: "bg-white text-gray-800 border-gray-300",
+                    onClick: () => alert('Google login clicked')
+                  },
+                  {
+                    icon: <FaFacebook className='fill-white' />,
+                    name: "Facebook",
+                    className: "bg-blue-500 text-white border-blue-500",
+                    onClick: () => alert('Facebook login clicked')
+                  }
+                ]
+              }}
             />
           </div>
         </div>

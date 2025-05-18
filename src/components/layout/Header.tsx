@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link'
-import Logo from '@/_assets/Logo'
-import { SearchBar } from '@/_components/'
+import Logo from '@/assets/Logo'
+import { SearchBar } from '@/components/ui'
 import { Popover, PopoverBackdrop, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { FaShoppingCart, FaBars, FaUser } from "react-icons/fa";
 import { useState, useEffect } from "react";

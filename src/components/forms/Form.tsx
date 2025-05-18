@@ -10,11 +10,7 @@ export interface FormProps {
   onSubmit: (data: FieldValues, setError: UseFormSetError<FieldValues>, event?: React.BaseSyntheticEvent) => void;
   onError?: SubmitHandler<FieldValues>;
 }
-/**
-* 
-* @param {FormProps} props
-* @returns
-*/
+
 const Form = ({
   id,
   className,

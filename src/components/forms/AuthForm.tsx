@@ -4,10 +4,10 @@ import {
   Form,
   Field,
   FormTitle,
-} from "@/_components";
-import Logo from "@/_assets/Logo";
+} from "@/components/ui";
+import Logo from "@/assets/Logo";
 import Link from "next/link";
-import FormMessage, { FormMessageProps } from "./Form/FormMessage";
+import FormMessage, { FormMessageProps } from "./FormMessage";
 import { FieldValues, UseFormRegisterReturn } from "react-hook-form";
 
 export interface FieldConfig {
@@ -36,13 +36,16 @@ export interface AuthFormProps {
     link: string;
     linkText: string;
   };
-  showExternalAuth?: boolean;
-  externalAuthOptions?: {
-    icon: ReactNode;
-    name: string;
-    className?: string;
-    onClick?: () => void;
-  }[];
+  externalAuth?: {
+    show: boolean;
+    text: string;
+    options: {
+      icon: ReactNode;
+      name: string;
+      className?: string;
+      onClick?: () => void;
+    }[];
+  };
   logoProps?: {
     mode?: "light" | "dark";
     width?: number;
@@ -58,8 +61,11 @@ const AuthForm = ({
   onSuccess,
   fields,
   alternateAuth,
-  showExternalAuth = true,
-  externalAuthOptions = [],
+  externalAuth = {
+    show: true,
+    text: "Or continue with",
+    options: []
+  },
   logoProps = {
     mode: "dark",
     width: 64,
@@ -139,19 +145,19 @@ const AuthForm = ({
         }}
       </Form>
 
-      {showExternalAuth && (
+      {externalAuth.show && (
         <>
           <div className="w-full relative mb-6">
             <div className="flex justify-center absolute inset-0 items-center">
               <div className="w-full border-t border-solid border-gray-500"></div>
             </div>
             <div className="flex justify-center relative">
-              <span className="text-gray-500 bg-white ps-2 pe-2">Or continue with</span>
+              <span className="text-gray-500 bg-white ps-2 pe-2">{externalAuth.text}</span>
             </div>
           </div>
 
           <div className="flex gap-1">
-            {externalAuthOptions.map((option, index) => (
+            {externalAuth.options.map((option, index) => (
               <Button
                 key={index}
                 onClick={option.onClick}

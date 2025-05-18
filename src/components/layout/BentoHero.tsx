@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import CategoryNav from "@/_components/CategoryNavbar";
+import CategoryNav from "@/components/ui/CategoryNavbar";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 // --------------------------------------------
@@ -17,9 +17,9 @@ type PromoCardProps = {
   className?: string;
 }
 
-const PromoCard = ({ 
-  title, 
-  description, 
+const PromoCard = ({
+  title,
+  description,
   link,
   bgColor = "bg-purple-100",
   className = ""
@@ -31,8 +31,8 @@ const PromoCard = ({
         <p className={`text-sm md:text-base`}>{description}</p>
       </div>
       <div className="mt-4">
-        <Link 
-          href={link} 
+        <Link
+          href={link}
           className={`inline-flex items-center gap-2 py-2 px-4 bg-gray-900 text-white rounded-lg text-sm hover:bg-gray-800 transition-colors`}
         >
           Check <FaArrowRight size={12} />
@@ -54,7 +54,7 @@ const BentoHero = () => {
           </div>
 
           {/* Main Hero Section - Spanning 2 rows across the remaining width */}
-          <PromoCard 
+          <PromoCard
             title="Year of the Snake"
             description="Gaming PCs on Sale - Up to 80% Off"
             link="/deals/vr"
@@ -65,7 +65,7 @@ const BentoHero = () => {
           {/* Third Row - Two promotional cards in the middle row */}
           <div className="col-span-1 md:col-span-3 grid md:grid-cols-3 gap-4">
             <div className="md:col-span-1">
-              <PromoCard 
+              <PromoCard
                 title="Year of the Snake"
                 description="Gaming PCs on Sale - Up to 80% Off"
                 link="/deals/vr"
@@ -74,7 +74,7 @@ const BentoHero = () => {
               />
             </div>
             <div className="md:col-span-2">
-              <PromoCard 
+              <PromoCard
                 title="Year of the Snake"
                 description="Gaming PCs on Sale - Up to 80% Off"
                 link="/deals/monitors"
@@ -86,28 +86,28 @@ const BentoHero = () => {
 
           {/* Fourth Row - Four Small Cards */}
           <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <PromoCard 
+            <PromoCard
               title="Year of the Snake"
               description="Gaming PCs on Sale - Up to 80% Off"
               link="/deals/components"
               bgColor="bg-pink-100"
               className="h-auto"
             />
-            <PromoCard 
+            <PromoCard
               title="Year of the Snake"
               description="Gaming PCs on Sale - Up to 80% Off"
               link="/deals/components"
               bgColor="bg-blue-100"
               className="h-auto"
             />
-            <PromoCard 
+            <PromoCard
               title="Year of the Snake"
               description="Gaming PCs on Sale - Up to 80% Off"
               link="/deals/components"
               bgColor="bg-green-100"
               className="h-auto"
             />
-            <PromoCard 
+            <PromoCard
               title="Year of the Snake"
               description="Gaming PCs on Sale - Up to 80% Off"
               link="/deals/accessories"

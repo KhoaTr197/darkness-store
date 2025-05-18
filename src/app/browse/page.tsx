@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaFilter, FaSort, FaTimes, FaCheck, FaStar, FaShoppingCart, FaChevronRight, FaHeart, FaSearch } from 'react-icons/fa';
-import { Header } from "@/_layout";
+import { Header } from "@/components/layout";
 import ProductPlaceholder from './_components/ProductPlaceholder';
 import { products, filterOptions, sortOptions } from './_data/products';
 
 const ProductCard = ({ product }: { product: any }) => (
-  <Link 
+  <Link
     href={`/products/${product.id}`}
     className="bg-white rounded-lg shadow-xs overflow-hidden group transition-all duration-300 hover:shadow-md border border-gray-100"
   >
@@ -25,7 +25,7 @@ const ProductCard = ({ product }: { product: any }) => (
         </span>
       )}
       <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <button 
+        <button
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -54,7 +54,7 @@ const ProductCard = ({ product }: { product: any }) => (
         <span className="text-lg font-bold text-gray-900">
           ${product.price.toLocaleString()}
         </span>
-        <button 
+        <button
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -130,8 +130,8 @@ export default function BrowsePage() {
     // Apply search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(product => 
-        product.name.toLowerCase().includes(query) || 
+      result = result.filter(product =>
+        product.name.toLowerCase().includes(query) ||
         product.category.toLowerCase().includes(query) ||
         product.brand.toLowerCase().includes(query)
       );
@@ -196,7 +196,7 @@ export default function BrowsePage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               Browse Products
             </h1>
-            
+
             {/* Search & Sort Bar */}
             <div className="flex flex-col md:flex-row items-stretch gap-4">
               {/* Search */}
@@ -204,15 +204,15 @@ export default function BrowsePage() {
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <FaSearch className="text-gray-400" />
                 </div>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="block w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg shadow-xs focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200"
                 />
                 {searchQuery && (
-                  <button 
+                  <button
                     onClick={() => setSearchQuery('')}
                     className="absolute inset-y-0 right-0 pr-3 flex items-center"
                   >
@@ -220,7 +220,7 @@ export default function BrowsePage() {
                   </button>
                 )}
               </div>
-              
+
               <div className="flex items-center gap-4">
                 {/* Mobile Filter Button */}
                 <button
@@ -230,7 +230,7 @@ export default function BrowsePage() {
                   <FaFilter className="text-primary-600" />
                   <span>Filter</span>
                 </button>
-                
+
                 {/* Sort Dropdown */}
                 <div className="flex-1 md:flex-none flex items-center gap-2 bg-white rounded-lg px-4 py-3 border border-gray-300 shadow-xs">
                   <FaSort className="text-primary-600" />
@@ -248,14 +248,14 @@ export default function BrowsePage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Applied Filters */}
             {(selectedCategories.length > 0 || selectedBrands.length > 0 || selectedPriceRanges.length > 0) && (
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className="text-sm text-gray-500">Active filters:</span>
-                
+
                 {selectedCategories.map(category => (
-                  <button 
+                  <button
                     key={category}
                     onClick={() => toggleCategory(category)}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full hover:bg-primary-100 transition-colors"
@@ -264,9 +264,9 @@ export default function BrowsePage() {
                     <FaTimes size={12} />
                   </button>
                 ))}
-                
+
                 {selectedBrands.map(brand => (
-                  <button 
+                  <button
                     key={brand}
                     onClick={() => toggleBrand(brand)}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full hover:bg-primary-100 transition-colors"
@@ -275,9 +275,9 @@ export default function BrowsePage() {
                     <FaTimes size={12} />
                   </button>
                 ))}
-                
+
                 {selectedPriceRanges.map(range => (
-                  <button 
+                  <button
                     key={range}
                     onClick={() => togglePriceRange(range)}
                     className="inline-flex items-center gap-1 px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full hover:bg-primary-100 transition-colors"
@@ -286,7 +286,7 @@ export default function BrowsePage() {
                     <FaTimes size={12} />
                   </button>
                 ))}
-                
+
                 <button
                   onClick={() => {
                     setSelectedCategories([]);
@@ -436,7 +436,7 @@ export default function BrowsePage() {
                       Showing <span className="font-medium text-gray-900">{filteredProducts.length}</span> products
                     </p>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {filteredProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />
