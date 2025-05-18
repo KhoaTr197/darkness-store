@@ -5,6 +5,7 @@ import Image from "next/image";
 import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+// --------------------------------------------
 
 const LoginPage = () => {
   const router = useRouter();

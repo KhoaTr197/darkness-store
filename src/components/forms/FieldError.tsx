@@ -1,7 +1,13 @@
 export interface ErrorProps {
   message?: string | null;
 }
-
+/**
+ * @component
+ * @description
+ * Renders an error message for a field.
+ * @param {string} message - Error message for the field.
+ * @returns {React.ReactNode} - Rendered error message.
+ */
 const FieldError = ({ message }: ErrorProps) => {
   if (!message) return null;
 
@@ -16,4 +22,4 @@ const FieldError = ({ message }: ErrorProps) => {
     </div>
   );
 };
-export default FieldError
+export default FieldError;

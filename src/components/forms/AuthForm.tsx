@@ -54,6 +54,51 @@ export interface AuthFormProps {
   children?: ReactNode;
 }
 
+/**
+ * Renders a customizable authentication form for login, registration, or password reset.
+ *
+ * Handles form rendering, validation, error display, and optional external authentication providers.
+ *
+ * @component
+ * @param {Object}   props
+ * @param {string}   props.title                - Title displayed at the top of the form.
+ * @param {string}   props.submitButtonText     - Text for the submit button.
+ * @param {function} props.onSubmit             - Async function called on form submit. Receives form data and setError callback.
+ * @param {function} props.onSuccess            - Callback after successful submission.
+ * @param {Array}    props.fields               - Array of field configs ({ name, label, type, validation }).
+ * @param {Object}   props.alternateAuth        - Alternate auth link ({ text, link, linkText }).
+ * @param {Object}   [props.externalAuth]       - External auth options ({ show, text, options }).
+ * @param {boolean}  [props.externalAuth.show]  - Show external auth section (default: true).
+ * @param {string}   [props.externalAuth.text]  - Text above external auth buttons.
+ * @param {Array}    [props.externalAuth.options] - Array of external auth options ({ icon, name, className, onClick }).
+ * @param {Object}   [props.logoProps]          - Logo config ({ mode, width, height }).
+ * @param {ReactNode}[props.children]           - Optional children rendered below fields.
+ *
+ * @example
+ * <AuthForm
+ *   title="Sign Up"
+ *   submitButtonText="Create Account"
+ *   onSubmit={async (data, setError) => { ... }}
+ *   onSuccess={() => { ... }}
+ *   fields={[
+ *     { name: 'username', label: 'Username', type: 'text', validation: { required: 'Username is required' } },
+ *     { name: 'email', label: 'Email', type: 'email', validation: { required: 'Email is required', pattern: /.../ } },
+ *     { name: 'password', label: 'Password', type: 'password', validation: { required: 'Password is required', minLength: { value: 6, message: 'Password must be at least 6 characters' } } },
+ *   ]}
+ *   alternateAuth={{ text: 'Already have an account?', link: '/login', linkText: 'Log In' }}
+ *   externalAuth={{
+ *     show: true,
+ *     text: 'Or sign up with',
+ *     options: [
+ *       { icon: <svg />, name: 'Google', onClick: () => console.log('Sign up with Google') },
+ *       { icon: <svg />, name: 'Facebook', className: 'bg-blue-500 text-white', onClick: () => console.log('Sign up with Facebook') },
+ *     ],
+ *   }}
+ *   logoProps={{ mode: 'light', width: 80, height: 80 }}
+ * >
+ *   <p className="text-sm text-gray-600 mt-4">By signing up, you agree to our terms.</p>
+ * </AuthForm>
+ */
 const AuthForm = ({
   title,
   submitButtonText,

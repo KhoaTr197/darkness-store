@@ -3,8 +3,16 @@ import React from 'react'
 export type FormMessageProps = {
   type: "success" | "error";
   message: string;
-}
-
+};
+/**
+ * @component
+ * @description
+ * Renders a form message with a success or error style.
+ *
+ * @param {string} type - Type of the message (success or error).
+ * @param {string} message - Message to display.
+ * @returns {React.ReactNode} - Rendered form message.
+ */
 const FormMessage = ({
   type,
   message
@@ -12,7 +20,7 @@ const FormMessage = ({
   const bgStyle = {
     success: "bg-green-500",
     error: "bg-red-500"
-  }
+  };
 
   return (
     <div
@@ -23,4 +31,4 @@ const FormMessage = ({
   )
 }
 
-export default FormMessage
+export default FormMessage;

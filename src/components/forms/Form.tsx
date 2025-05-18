@@ -10,7 +10,20 @@ export interface FormProps {
   onSubmit: (data: FieldValues, setError: UseFormSetError<FieldValues>, event?: React.BaseSyntheticEvent) => void;
   onError?: SubmitHandler<FieldValues>;
 }
-
+/**
+ * @component
+ * @description
+ * Renders a form with children rendered inside it.
+ *
+ * @param {string} id - ID for the form.
+ * @param {string} className - Class name for the form.
+ * @param {string} method - Method for the form (default: "post").
+ * @param {UseFormProps<FieldValues>} options - Options for the form.
+ * @param {function} onSubmit - Function to handle form submission.
+ * @param {function} onError - Function to handle form submission errors.
+ * @param {function} children - Function to render children inside the form.
+ * @returns {React.ReactNode} - Rendered form.
+ */
 const Form = ({
   id,
   className,
@@ -35,6 +48,6 @@ const Form = ({
     >
       {children(form)}
     </form>
-  )
-}
-export default Form
+  );
+};
+export default Form;
