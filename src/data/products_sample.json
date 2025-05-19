@@ -1,0 +1,457 @@
+[
+  {
+    "product_id": 1,
+    "name": "AMD Ryzen 7 7800X3D",
+    "description": "8-core CPU with 3D V-Cache for gaming",
+    "low_stock_threshold": 10,
+    "stock_quantity": 50,
+    "original_price": 449.99,
+    "sales_off": 11.11,
+    "new_price": 399.99,
+    "thumbnail_url": "https://www.newegg.com/ryzen7800x3d.png",
+    "sales_count": 150,
+    "views_count": 600,
+    "average_rating": 4.7,
+    "brand_id": 5,
+    "is_active": true,
+    "specifications": {
+      "cache": "104MB",
+      "cores": 8,
+      "threads": 16,
+      "base_speed": "4.2GHz",
+      "boost_speed": "5.0GHz"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "AMD",
+      "logo_url": "https://www.amd.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "CPUs",
+        "url_slug": "CPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 2,
+    "name": "AMD Ryzen 9 7900X",
+    "description": "12-core CPU for multitasking and productivity",
+    "low_stock_threshold": 8,
+    "stock_quantity": 40,
+    "original_price": 549.99,
+    "sales_off": 9.09,
+    "new_price": 499.99,
+    "thumbnail_url": "https://www.newegg.com/ryzen7900x.png",
+    "sales_count": 100,
+    "views_count": 500,
+    "average_rating": 4.6,
+    "brand_id": 5,
+    "is_active": true,
+    "specifications": {
+      "cache": "76MB",
+      "cores": 12,
+      "threads": 24,
+      "base_speed": "4.7GHz",
+      "boost_speed": "5.6GHz"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "AMD",
+      "logo_url": "https://www.amd.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "CPUs",
+        "url_slug": "CPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 3,
+    "name": "Intel Core i7-14700K",
+    "description": "20-core CPU for gaming and content creation",
+    "low_stock_threshold": 10,
+    "stock_quantity": 45,
+    "original_price": 419.99,
+    "sales_off": 4.76,
+    "new_price": 399.99,
+    "thumbnail_url": "https://www.newegg.com/i714700k.png",
+    "sales_count": 120,
+    "views_count": 550,
+    "average_rating": 4.5,
+    "brand_id": 6,
+    "is_active": true,
+    "specifications": {
+      "cache": "33MB",
+      "cores": 20,
+      "threads": 28,
+      "base_speed": "3.4GHz",
+      "boost_speed": "5.6GHz"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "Intel",
+      "logo_url": "https://www.intel.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "CPUs",
+        "url_slug": "CPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 4,
+    "name": "MSI GeForce RTX 4070 Ti Ventus 3X",
+    "description": "High-end GPU for 4K gaming and ray tracing",
+    "low_stock_threshold": 5,
+    "stock_quantity": 25,
+    "original_price": 849.99,
+    "sales_off": 5.88,
+    "new_price": 799.99,
+    "thumbnail_url": "https://www.msi.com/rtx4070ti.png",
+    "sales_count": 80,
+    "views_count": 400,
+    "average_rating": 4.6,
+    "brand_id": 3,
+    "is_active": true,
+    "specifications": {
+      "vram": "12GB",
+      "base_clock": "2.31GHz",
+      "cuda_cores": 7680,
+      "boost_clock": "2.61GHz",
+      "memory_type": "GDDR6X"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "MSI",
+      "logo_url": "https://www.msi.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "GPUs",
+        "url_slug": "GPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 5,
+    "name": "ASUS ROG Strix GeForce RTX 4080",
+    "description": "Premium GPU for ultimate gaming performance",
+    "low_stock_threshold": 5,
+    "stock_quantity": 20,
+    "original_price": 1399.99,
+    "sales_off": 7.14,
+    "new_price": 1299.99,
+    "thumbnail_url": "https://rog.asus.com/rtx4080.png",
+    "sales_count": 60,
+    "views_count": 350,
+    "average_rating": 4.8,
+    "brand_id": 2,
+    "is_active": true,
+    "specifications": {
+      "vram": "16GB",
+      "base_clock": "2.21GHz",
+      "cuda_cores": 9728,
+      "boost_clock": "2.51GHz",
+      "memory_type": "GDDR6X"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "ASUS ROG",
+      "logo_url": "https://rog.asus.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "GPUs",
+        "url_slug": "GPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 6,
+    "name": "NVIDIA GeForce RTX 4090 Founders Edition",
+    "description": "Top-tier GPU for 8K gaming and AI workloads",
+    "low_stock_threshold": 3,
+    "stock_quantity": 15,
+    "original_price": 1599.99,
+    "sales_off": 6.25,
+    "new_price": 1499.99,
+    "thumbnail_url": "https://www.nvidia.com/rtx4090.png",
+    "sales_count": 50,
+    "views_count": 300,
+    "average_rating": 4.9,
+    "brand_id": 7,
+    "is_active": true,
+    "specifications": {
+      "vram": "24GB",
+      "base_clock": "2.23GHz",
+      "cuda_cores": 16384,
+      "boost_clock": "2.52GHz",
+      "memory_type": "GDDR6X"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "NVIDIA",
+      "logo_url": "https://www.nvidia.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "GPUs",
+        "url_slug": "GPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 7,
+    "name": "MSI Radeon RX 7900 XTX Gaming Trio",
+    "description": "High-performance AMD GPU for gaming",
+    "low_stock_threshold": 5,
+    "stock_quantity": 20,
+    "original_price": 999.99,
+    "sales_off": 10,
+    "new_price": 899.99,
+    "thumbnail_url": "https://www.msi.com/rx7900xtx.png",
+    "sales_count": 70,
+    "views_count": 380,
+    "average_rating": 4.7,
+    "brand_id": 3,
+    "is_active": true,
+    "specifications": {
+      "vram": "24GB",
+      "base_clock": "2.3GHz",
+      "boost_clock": "2.5GHz",
+      "memory_type": "GDDR6",
+      "stream_processors": 6144
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "MSI",
+      "logo_url": "https://www.msi.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "GPUs",
+        "url_slug": "GPUs"
+      }
+    ]
+  },
+  {
+    "product_id": 8,
+    "name": "ASRock B650E PG Riptide WiFi",
+    "description": "AM5 motherboard for Ryzen 7000 series",
+    "low_stock_threshold": 15,
+    "stock_quantity": 75,
+    "original_price": 229.99,
+    "sales_off": 13.04,
+    "new_price": 199.99,
+    "thumbnail_url": "https://www.asrock.com/b650e.png",
+    "sales_count": 120,
+    "views_count": 700,
+    "average_rating": 4.2,
+    "brand_id": 1,
+    "is_active": true,
+    "specifications": {
+      "wifi": "WiFi 6E",
+      "chipset": "B650",
+      "max_memory": "128GB",
+      "form_factor": "ATX",
+      "memory_slots": 4
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "ASRock",
+      "logo_url": "https://www.asrock.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "Motherboards",
+        "url_slug": "Motherboards"
+      }
+    ]
+  },
+  {
+    "product_id": 9,
+    "name": "GIGABYTE X870 AORUS Elite WiFi7",
+    "description": "High-end AM5 motherboard with WiFi 7",
+    "low_stock_threshold": 12,
+    "stock_quantity": 60,
+    "original_price": 399.99,
+    "sales_off": 12.5,
+    "new_price": 349.99,
+    "thumbnail_url": "https://www.gigabyte.com/x870aorus.png",
+    "sales_count": 90,
+    "views_count": 550,
+    "average_rating": 4.5,
+    "brand_id": 4,
+    "is_active": true,
+    "specifications": {
+      "wifi": "WiFi 7",
+      "chipset": "X870",
+      "max_memory": "192GB",
+      "form_factor": "ATX",
+      "memory_slots": 4
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "GIGABYTE",
+      "logo_url": "https://www.gigabyte.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "Motherboards",
+        "url_slug": "Motherboards"
+      }
+    ]
+  },
+  {
+    "product_id": 10,
+    "name": "NZXT N7 B650E",
+    "description": "Sleek AM5 motherboard with robust features",
+    "low_stock_threshold": 10,
+    "stock_quantity": 50,
+    "original_price": 299.99,
+    "sales_off": 10,
+    "new_price": 269.99,
+    "thumbnail_url": "https://www.nzxt.com/n7b650e.png",
+    "sales_count": 80,
+    "views_count": 450,
+    "average_rating": 4.3,
+    "brand_id": 10,
+    "is_active": true,
+    "specifications": {
+      "wifi": "WiFi 6E",
+      "chipset": "B650E",
+      "max_memory": "128GB",
+      "form_factor": "ATX",
+      "memory_slots": 4
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "NZXT",
+      "logo_url": "https://www.nzxt.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "Motherboards",
+        "url_slug": "Motherboards"
+      }
+    ]
+  },
+  {
+    "product_id": 11,
+    "name": "ASUS ROG Strix Impact DDR5 32GB",
+    "description": "High-speed DDR5 RAM for gaming PCs",
+    "low_stock_threshold": 20,
+    "stock_quantity": 100,
+    "original_price": 149.99,
+    "sales_off": 13.33,
+    "new_price": 129.99,
+    "thumbnail_url": "https://rog.asus.com/ddr5.png",
+    "sales_count": 200,
+    "views_count": 900,
+    "average_rating": 4.3,
+    "brand_id": 2,
+    "is_active": true,
+    "specifications": {
+      "type": "DDR5",
+      "speed": "6000MHz",
+      "latency": "CL30",
+      "voltage": "1.35V",
+      "capacity": "32GB"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "ASUS ROG",
+      "logo_url": "https://rog.asus.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "RAM",
+        "url_slug": "RAM"
+      }
+    ]
+  },
+  {
+    "product_id": 12,
+    "name": "MSI Trident DDR5 64GB",
+    "description": "Dual-channel DDR5 RAM for high performance",
+    "low_stock_threshold": 15,
+    "stock_quantity": 80,
+    "original_price": 279.99,
+    "sales_off": 10.71,
+    "new_price": 249.99,
+    "thumbnail_url": "https://www.msi.com/ddr5.png",
+    "sales_count": 150,
+    "views_count": 800,
+    "average_rating": 4.4,
+    "brand_id": 3,
+    "is_active": true,
+    "specifications": {
+      "type": "DDR5",
+      "speed": "6400MHz",
+      "latency": "CL32",
+      "voltage": "1.40V",
+      "capacity": "64GB"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "MSI",
+      "logo_url": "https://www.msi.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "RAM",
+        "url_slug": "RAM"
+      }
+    ]
+  },
+  {
+    "product_id": 13,
+    "name": "Corsair Vengeance RGB DDR5 32GB",
+    "description": "High-performance DDR5 RAM with RGB lighting",
+    "low_stock_threshold": 15,
+    "stock_quantity": 90,
+    "original_price": 159.99,
+    "sales_off": 12.5,
+    "new_price": 139.99,
+    "thumbnail_url": "https://www.corsair.com/vengeance.png",
+    "sales_count": 180,
+    "views_count": 850,
+    "average_rating": 4.35,
+    "brand_id": 8,
+    "is_active": true,
+    "specifications": {
+      "type": "DDR5",
+      "speed": "6200MHz",
+      "latency": "CL36",
+      "voltage": "1.30V",
+      "capacity": "32GB"
+    },
+    "created_at": "2025-05-18T14:57:46.600548",
+    "updated_at": "2025-05-18T14:57:46.600548",
+    "Brands": {
+      "name": "Corsair",
+      "logo_url": "https://www.corsair.com/logo.png"
+    },
+    "Categories": [
+      {
+        "name": "RAM",
+        "url_slug": "RAM"
+      }
+    ]
+  }
+]
