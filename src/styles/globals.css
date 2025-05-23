@@ -4,6 +4,8 @@
   --container-7xl: 90rem;
 
   --height-header: var(--headerHeight);
+  --spacing-header: var(--height-header);
+  --spacing-filterBar: calc(var(--height-header) + 1rem);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -91,7 +93,7 @@ body {
 }
 
 .header {
-  @apply fixed top-0 w-full bg-background text-white shadow-sm z-10;
+  @apply fixed top-0 w-full bg-background text-white shadow-sm z-50;
 }
 
 .promo-card {

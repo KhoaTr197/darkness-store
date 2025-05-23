@@ -7,9 +7,7 @@ import {
 export default function Home() {
   return (
     <>
-      <Header />
       <BentoHero />
-      <Footer />
     </>
   );
 }
