@@ -27,9 +27,7 @@ export default function RootLayout({
         className={`${montserrat.className} ${montserrat.variable} antialiased`}
       >
         <AuthProvider>
-          <Header />
           {children}
-          <Footer />
         </AuthProvider>
       </body>
     </html>

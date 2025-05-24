@@ -6,6 +6,7 @@ import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
+import { supabase } from "@/lib/supabase";
 // --------------------------------------------
 
 const LoginPage = () => {
@@ -38,12 +39,13 @@ const LoginPage = () => {
 
   const onSubmit = async (data: any, setError: any) => {
     try {
-      await login(data.email, data.password);
-      router.push('/dashboard');
+      await login(data);
+      alert("Login successful");
+      router.push('/');
     } catch (error) {
       setError("root", {
         type: "error",
-        message: "Invalid credentials"
+        message: "Invalid email or password"
       });
     }
   };
@@ -72,7 +74,14 @@ const LoginPage = () => {
                     icon: <FcGoogle />,
                     name: "Google",
                     className: "bg-white text-gray-800 border-gray-300",
-                    onClick: () => alert('Google login clicked')
+                    onClick: () => {
+                      supabase.auth.signInWithOAuth({
+                        provider: 'google',
+                        options: {
+                          redirectTo: `${window.location.origin}/auth/callback`
+                        }
+                      });
+                    }
                   },
                   {
                     icon: <FaFacebook className='fill-white' />,

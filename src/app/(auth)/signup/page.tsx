@@ -9,8 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 // ---------------------------------
 
 const SignupPage = () => {
-  const { isLoading } = useAuth();
-  const router = useRouter();
+  const { isLoading, signup } = useAuth();
 
   const signupFields: FieldConfig[] = [
     {
@@ -57,16 +56,15 @@ const SignupPage = () => {
   ];
 
   const onSubmit = async (data: any, setError: any) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Demo validation - in real app, this would be an API call
-    if (data.email === 'taken@example.com') {
-      throw new Error('This email is already registered');
+    try {
+      await signup(data, `${window.location.origin}/login`);
+      alert("Account created successfully! Please check your email to verify your account.");
+    } catch (error) {
+      setError("root", {
+        type: "error",
+        message: "Failed to create account"
+      });
     }
-
-    // Success - would normally create user account here
-    router.replace('/login')
   };
 
   return (

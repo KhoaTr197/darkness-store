@@ -167,7 +167,7 @@ const Header = () => {
           <div className='flex items-center gap-8 h-full'>
             <Link
               className='flex items-center gap-2 px-4 h-full rounded-full transition duration-100 bg-primary-500 hover:brightness-90'
-              href="/auth/login"
+              href="/login"
             >
               <FaUser size={24} />
               <div>
