@@ -6,11 +6,11 @@ import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
+import { myToast } from "@/components/toast";
 // ---------------------------------
 
 const SignupPage = () => {
-  const { isLoading } = useAuth();
-  const router = useRouter();
+  const { isLoading, signup } = useAuth();
 
   const signupFields: FieldConfig[] = [
     {
@@ -57,22 +57,21 @@ const SignupPage = () => {
   ];
 
   const onSubmit = async (data: any, setError: any) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Demo validation - in real app, this would be an API call
-    if (data.email === 'taken@example.com') {
-      throw new Error('This email is already registered');
+    try {
+      await signup(data, `${window.location.origin}/login`);
+      myToast.success("Signup successful", "You have successfully created an account");
+    } catch (error) {
+      setError("root", {
+        type: "error",
+        message: "Failed to create account"
+      });
     }
-
-    // Success - would normally create user account here
-    router.replace('/login')
   };
 
   return (
     <main className="w-screen h-screen bg-white">
       <div className="flex flex-row-reverse h-full">
-        <div className="basis-1/3 p-12">
+        <div className="basis-1/3 p-12 overflow-y-auto">
           <div className="w-full">
             <AuthForm
               title="Create Account"

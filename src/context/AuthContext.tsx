@@ -1,17 +1,19 @@
 "use client";
 
+import { LoginFormData, SignupFormData } from "@/interfaces/form";
+import { supabase } from "@/lib/supabase";
 import { createContext, useContext, useState } from "react";
 // ---------------------------------
 export interface User {
   id: string;
-  name: string;
+  full_name: string;
   email: string;
 }
 
 export interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => Promise<void>;
-  signup: (data: any) => Promise<void>;
+  login: (formData: LoginFormData) => Promise<void>;
+  signup: (formData: SignupFormData, emailRedirect: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
 }
@@ -22,20 +24,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const login = async (email: string, password: string) => {
+  const login = async ({ email, password }: LoginFormData) => {
     setIsLoading(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
 
-      // Demo validation - in real app, this would be an API call
-      if (email !== 'demo@example.com' || password !== 'password123') {
-        throw new Error('Invalid credentials');
+      if (error) {
+        throw error;
       }
 
-      // Success - would normally set auth tokens/cookies here
-      const newUser: User = { id: '1', name: 'Demo User', email: 'demo@example.com' };
-      setUser(newUser);
+      const { user } = data;
+      setUser({
+        id: user.id,
+        full_name: user.user_metadata.full_name,
+        email: user.user_metadata.email
+      });
     } catch (err) {
       throw err;
     } finally {
@@ -43,18 +49,32 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const signup = async (data: any) => {
+  const signup = async (
+    { name, email, password, confirmPassword }: SignupFormData,
+    emailRedirect: string
+  ) => {
     setIsLoading(true);
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Demo validation - in real app, this would be an API call
-      if (data.email === 'taken@example.com') {
-        throw new Error('This email is already registered');
+      if(password !== confirmPassword) {
+        throw new Error('Passwords do not match');
       }
 
-      // Success - would normally create user account here
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: name,
+            emailRedirect: emailRedirect,
+          }  
+        }
+      })
+
+      if (error) {
+        throw error;
+      }
+
+      console.log("Signup successful");
 
     } catch (err) {
       throw err;
