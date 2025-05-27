@@ -6,6 +6,7 @@ import AuthForm, { FieldConfig } from "@/components/forms/AuthForm";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
+import { myToast } from "@/components/toast";
 // ---------------------------------
 
 const SignupPage = () => {
@@ -58,7 +59,7 @@ const SignupPage = () => {
   const onSubmit = async (data: any, setError: any) => {
     try {
       await signup(data, `${window.location.origin}/login`);
-      alert("Account created successfully! Please check your email to verify your account.");
+      myToast.success("Signup successful", "You have successfully created an account");
     } catch (error) {
       setError("root", {
         type: "error",
@@ -70,7 +71,7 @@ const SignupPage = () => {
   return (
     <main className="w-screen h-screen bg-white">
       <div className="flex flex-row-reverse h-full">
-        <div className="basis-1/3 p-12">
+        <div className="basis-1/3 p-12 overflow-y-auto">
           <div className="w-full">
             <AuthForm
               title="Create Account"

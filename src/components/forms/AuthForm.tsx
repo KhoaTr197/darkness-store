@@ -9,6 +9,7 @@ import Logo from "@/assets/Logo";
 import Link from "next/link";
 import FormMessage, { FormMessageProps } from "./FormMessage";
 import { FieldValues, UseFormRegisterReturn } from "react-hook-form";
+import { Loader } from "@/components/ui";
 // ---------------------------------
 
 export interface FieldConfig {
@@ -171,9 +172,9 @@ const AuthForm = ({
 
               <Button
                 type="submit"
-                className={`w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded-sm text-white ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-primary-500 data-hover:bg-primary-600'}`} disabled={isLoading}
+                className={`flex justify-center items-center w-full transition duration-200 linear p-3 text-lg font-semibold tracking-wider rounded-sm text-white ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-primary-500 data-hover:bg-primary-600'}`} disabled={isLoading}
               >
-                {isLoading ? "Logging in..." : submitButtonText}
+                {isLoading ? <Loader size={24}/> : submitButtonText}
               </Button>
             </>
           );

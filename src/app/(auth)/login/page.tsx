@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { supabase } from "@/lib/supabase";
+import { myToast } from "@/components/toast";
 // --------------------------------------------
 
 const LoginPage = () => {
@@ -40,7 +41,7 @@ const LoginPage = () => {
   const onSubmit = async (data: any, setError: any) => {
     try {
       await login(data);
-      alert("Login successful");
+      myToast.success("Login successful", "You have successfully logged in");
       router.push('/');
     } catch (error) {
       setError("root", {
@@ -53,7 +54,7 @@ const LoginPage = () => {
   return (
     <main className="w-screen h-screen bg-white">
       <div className="flex h-full">
-        <div className="basis-1/3 p-12">
+        <div className="basis-1/3 p-12 overflow-y-auto">
           <div className="w-full">
             <AuthForm
               title="Login"
@@ -103,7 +104,7 @@ const LoginPage = () => {
             />
           </div>
         </div>
-      </div>
+      </div>  
     </main>
   );
 }
