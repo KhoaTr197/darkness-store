@@ -75,14 +75,7 @@ const LoginPage = () => {
                     icon: <FcGoogle />,
                     name: "Google",
                     className: "bg-white text-gray-800 border-gray-300",
-                    onClick: () => {
-                      supabase.auth.signInWithOAuth({
-                        provider: 'google',
-                        options: {
-                          redirectTo: `${window.location.origin}/auth/callback`
-                        }
-                      });
-                    }
+                    onClick: () => alert('Google login clicked')
                   },
                   {
                     icon: <FaFacebook className='fill-white' />,
@@ -104,7 +97,7 @@ const LoginPage = () => {
             />
           </div>
         </div>
-      </div>  
+      </div>
     </main>
   );
 }
