@@ -1,57 +1,34 @@
 import Link from 'next/link';
-import { FaChevronRight, FaSearch } from 'react-icons/fa';
-import { Header } from "@/components/layout";
+import { FaChevronRight } from 'react-icons/fa';
 import FilterSection from "@/components/ui/FilterSection";
-import ProductCard from "@/components/ui/ProductCard";
-import { Product } from '@/interfaces/product';
-import sampleProducts from "@/data/products_sample.json";
 import { notFound } from 'next/navigation';
-import { ApiResponse } from '@/interfaces/api';
+import { ProductsApiResponse } from "@/interfaces/api";
+import { ProductList } from '@/components/ui/ProductList';
+import { getProducts, ITEMS_PER_PAGE } from '@/lib/api';
 // -------------------------------
-
-const ITEMS_PER_PAGE = process.env.NEXT_PUBLIC_ITEMS_PER_PAGE || 12;
-
-async function getData(slug: string, page: number): Promise<ApiResponse> {
-  // Replace with your actual API endpoint
-  // const response = await fetch(
-  //   `https://api.example.com/categories/${slug}?page=${page}&limit=${ITEMS_PER_PAGE}`,
-  //   { next: { revalidate: 3600 } } // ISR with 1-hour revalidation
-  // );
-
-  // if (!response.ok) {
-  //   throw new Error("Failed to fetch category data");
-  // }
-
-  // return response.json();
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        items: sampleProducts,
-        page: 1,
-        total: 12
-      });
-    }, 1000);
-  });
-}
 
 export default async function CategoryBrowsePage({
   params,
+  searchParams,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>,
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { slug } = await params;
+  const query = await searchParams;
+  const queryParams = {
+    page: Number(query.page) || 1
+  }
 
-  let data: ApiResponse;
+  let initialData: ProductsApiResponse;
   try {
-    data = await getData(slug, 1);
+    initialData = await getProducts(slug, queryParams.page);
   } catch (error) {
-    console.error(error);
     return notFound();
   }
 
   return (
     <>
-      <Header />
       <main className="bg-[#f5f5f7] min-h-screen pt-(--headerHeight)">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Breadcrumb */}
@@ -93,42 +70,13 @@ export default async function CategoryBrowsePage({
             </div>
 
             {/* Products List */}
-            {data.items.length > 0 ? (
-              <div className='flex-4/5'>
-                <div className="flex justify-between mb-4">
-                  <p className="text-sm text-gray-500">
-                    Showing <span className="font-medium text-gray-900">{data.items.length}</span> products
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {data.items.map((product) => (
-                    <ProductCard key={product.product_id} data={product} />
-                  ))}
-                </div>
-
-                {/* Pagination */}
-                <div className='pagination'>
-                  <button className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                    Previous
-                  </button>
-                  <button className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                    1
-                  </button>
-                  <button className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
-                    Next
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex-4/5 bg-white rounded-lg shadow-xs p-8 text-center border border-gray-100">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-                  <FaSearch className="text-gray-400" size={24} />
-                </div>
-                <h3 className="text-xl font-medium text-gray-900 mb-2">No products found</h3>
-                <p className="text-gray-600 mb-6 max-w-md mx-auto">We couldn't find any products. Please try again</p>
-              </div>
-            )}
+            <div className="flex-4/5">
+              <ProductList
+                initialData={initialData}
+                slug={slug}
+                itemsPerPage={ITEMS_PER_PAGE}
+              />
+            </div>
           </div>
         </div>
       </main>

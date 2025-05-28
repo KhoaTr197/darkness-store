@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ChangeEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";

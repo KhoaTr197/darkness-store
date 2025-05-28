@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { FieldValues, SubmitHandler, useForm, UseFormProps, UseFormReturn, UseFormSetError } from "react-hook-form";
 

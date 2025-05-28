@@ -1,3 +1,5 @@
+"use client";
+
 import { Popover, PopoverButton } from '@headlessui/react'
 import Link from 'next/link';
 import { ReactNode, useState, useRef, useEffect } from 'react'

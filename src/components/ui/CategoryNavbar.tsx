@@ -19,14 +19,14 @@ const categories: Category[] = [
   },
   {
     name: "Components",
-    link: "/category/components",
+    link: "/category/Components-Storage",
     subcategories: [
-      { name: "CPU", link: "/category/components/cpu" },
-      { name: "GPU", link: "/category/components/gpu" },
-      { name: "Mainboard", link: "/category/components/mainboard" },
-      { name: "RAM", link: "/category/components/ram" },
-      { name: "Power Supply", link: "/category/components/power-supply" },
-      { name: "Computer Case", link: "/category/components/computer-case" },
+      { name: "CPU", link: "/category/CPUs" },
+      { name: "GPU", link: "/category/GPUs" },
+      { name: "Mainboard", link: "/category/Motherboards" },
+      { name: "RAM", link: "/category/RAM" },
+      { name: "Power Supply", link: "/category/power-supply" },
+      { name: "Computer Case", link: "/category/computer-case" },
     ]
   },
   {

@@ -6,9 +6,11 @@ export default function CategoryBrowseLayout({
   return children;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params:  Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
   return {
-    title: `${params.slug} | Darkness Store`,
-    description: `Buy ${params.slug} relevant products from Darkness Store - The best PC components shop`,
+    title: `${slug} | Darkness Store`,
+    description: `Buy ${slug} relevant products from Darkness Store - The best PC components shop`,
   };
 } 
